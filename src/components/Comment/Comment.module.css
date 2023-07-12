@@ -1,0 +1,192 @@
+.comments {
+  padding: 12px 12px;
+  background-color: #FFF;
+  border-radius: 12px;
+  border: 2px solid #D9EBFF;
+}
+
+.comments .separate {
+  color: #515151;
+  font-size: 18px;
+}
+
+.comments .separate::before,
+.comments .separate::after {
+  background-color: #69b1ff80;
+}
+
+.comments .noComment {
+  margin-top: 64px;
+}
+
+.comments .noComment .paragraph {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.comments .unorderList {
+  height: 100%;
+  max-height: 582px;
+  min-height: 232px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-top: 1.5px solid #D9EBFF;
+  border-bottom: 1.5px solid #D9EBFF;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.comments .list {
+  width: 100%;
+}
+
+.comments .list {
+  display: inline-block;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.comments .list .comment {
+  min-width: 196px;
+  /* max-width: 896px; */
+  position: relative;
+  display: inline-block;
+}
+
+.comments .list .comment::before {
+  content: attr(time);
+  bottom: -16px;
+  right: 36px;
+  position: absolute;
+  font-size: 8px;
+}
+
+.comments .list .avatar {
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  padding: 2px;
+}
+
+.comments .list .avatar .image {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 1px #ccc solid;
+}
+
+.comments .list .contentWrap {
+  min-height: 48px;
+  margin-left: 12px;
+  margin-right: 24px;
+  display: flex;
+  flex-direction: column;
+  background-color: #D9EBFF;
+  padding: 4px 12px;
+  border-radius: 16px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 1px 4px;
+}
+
+.comments .list .contentWrap .headingSixth {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.comments .list .contentWrap .paragraph {
+  padding-bottom: 4px;
+  overflow-wrap: break-word;
+}
+
+.comments .list .actions {
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+.comments .list .actions .ellipsis{
+  font-size: 20px;
+  color: #007bff;
+}
+
+.delete .actionText, 
+.edit .actionText {
+  margin-left: 12px;
+}
+
+.comments .enterComment .fieldComment {
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid #D9EBFF;
+  border-radius: 12px;
+  padding: 12px;
+  resize: none;
+  font-weight: 400;
+}
+
+.comments .enterComment .fieldComment:focus-visible {
+  outline: 2px solid #D9EBFF;
+}
+
+.comments .enterComment .send {
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.comments .enterComment .send:hover {
+  opacity: 0.6;
+}
+
+.comments .enterComment .send.disabled {
+  cursor:not-allowed;
+  color: #D9EBFF;
+}
+
+/* Kích thước nhỏ hơn 992px */
+@media (max-width: 991.98px) {
+  .comments .list .contentWrap {
+    margin-left: 0px;
+  }
+}
+
+/* Kích thước nhỏ hơn 768px */
+@media (max-width: 767.98px) {
+  .comments .separate {
+    font-size: 16px;
+  }
+
+  .comments .list .contentWrap {
+    margin-left: 12px;
+  }
+}
+
+/* Kích thước nhỏ hơn 576px */
+@media (max-width: 575.98px) {
+  .comments .list .contentWrap {
+    margin-left: 0px;
+  }
+
+  .comments .list .avatar {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+  }
+
+  .comments .list .contentWrap .headingSixth {
+    font-size: 10px;
+  }
+  
+  .comments .noComment .paragraph, 
+  .comments .list .contentWrap .paragraph,
+  .comments .enterComment .fieldComment {
+    font-size: 12px;
+  }
+}

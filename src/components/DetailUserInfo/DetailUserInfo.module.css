@@ -1,0 +1,29 @@
+.detailInfo {
+  width: 100%;
+  text-align: center;
+  padding: 2px 32px 24px 32px;
+  margin-bottom: 32px;
+  color: #515151;
+}
+
+.detailInfo .editInfo {
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+.detailInfo .editInfo .editInfoBtn {
+  padding: 2px 16px;
+  min-width: 224px;
+}
+
+.detailInfo .editInfoBtn, 
+.detailInfo .saveBtn {
+  border-color: #D9EBFF;
+  background-color: #D9EBFF;
+}
+
+.required {
+  font-size: 12px;
+  color: #ff0000;
+  font-weight: 400;
+}

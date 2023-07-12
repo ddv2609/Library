@@ -1,0 +1,58 @@
+.drawer .unorderList {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.drawer .list {
+  font-size: 18px;
+  margin: 8px 12px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drawer .icon {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.drawer .list .dropdown, 
+.drawer .list .notifies, 
+.drawer .anchor {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  color: #747271;
+  transition: all .25s ease-in-out;
+}
+
+.drawer .list .notifies .action {
+  color: #747271;
+}
+
+.drawer .list .action:focus,
+.drawer .anchor:focus {
+  color: #007bff;
+  background-color: #D9EBFF;
+}
+
+.drawer .anchor:hover {
+  text-decoration: none;
+}
+
+.drawer .anchor:hover, 
+.drawer .list .dropdown:hover,
+.drawer .list .notifies:hover {
+  background-color: #D9EBFF;
+  cursor: pointer;
+}
+
+.notify:first-child {
+  margin-top: 16px;
+}
+
+.separate {
+  margin: 8px 0;
+}

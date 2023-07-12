@@ -1,0 +1,79 @@
+.pages .unorderList {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.pages .list {
+  font-size: 16px;
+  margin: 8px 12px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pages .icon {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pages .anchor {
+  padding: 8px 12px;
+  border-radius: 12px;
+  color: #747271;
+  transition: all .25s ease-in-out;
+}
+
+.pages .anchor:focus {
+  color: #007bff;
+  background-color: #D9EBFF;
+}
+
+.pages .anchor:hover {
+  text-decoration: none;
+  background-color: #D9EBFF;
+  cursor: pointer;
+}
+
+.pages .userIcon,
+.pages .notify {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pages .userIcon {
+  object-fit: contain;
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.pages .userIcon:hover,
+.pages .notify:hover {
+  background-color: #D9EBFF;
+}
+
+.pages .avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pages .iconActionUser,
+.pages .notifyIcon {
+  color: #747271;
+  cursor: pointer;
+}
+
+.pages .notify {
+  width: 24px;
+  height: 24px;
+  padding: 16px;
+  border-radius: 50%;
+}

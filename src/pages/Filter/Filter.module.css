@@ -1,0 +1,16 @@
+.filterBooks {
+  text-align: center;
+  width: 100%;
+}
+
+.filterBooks .search {
+  padding: 6px 12px;
+}
+
+
+/* Kích thước nhỏ hơn 992px */
+@media (max-width: 991.98px) {
+  .bookFilter {
+    display: none;
+  }
+}

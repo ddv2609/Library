@@ -1,0 +1,45 @@
+.bookFilter {
+  padding: 6px 12px;
+  border-radius: 18px;
+}
+
+.bookFilter {
+  background-color: #f0f0f0;
+  margin-bottom: 24px;
+}
+
+.headingSecond,
+.features {
+  color: #515151;
+}
+
+.headingSecond {
+  font-weight: 750;
+  font-size: 18px;
+}
+
+.separate {
+  margin-bottom: 8px !important;
+  margin-top: 6px !important;
+}
+
+.separate::before,
+.separate::after {
+  background-color: #69b1ff80;
+}
+
+.filter, 
+.sort {
+  margin-right: 12px;
+  margin-left: 8px;
+  padding: 6px 12px;
+}
+
+.features {
+  font-weight: 500;
+}
+
+.choice {
+  padding: 2px 16px;
+}
+

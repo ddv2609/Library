@@ -1,0 +1,57 @@
+.status {
+  padding: 6px 12px;
+  border-radius: 18px;
+}
+
+.status {
+  background-color: #FFF;
+  margin-bottom: 32px;
+}
+
+.headingSecond,
+.iconFilter {
+  color: #515151;
+}
+
+.headingSecond {
+  font-weight: 750;
+  font-size: 18px;
+}
+
+.separate {
+  margin-bottom: 8px !important;
+  margin-top: 6px !important;
+}
+
+.separate::before,
+.separate::after {
+  background-color: #69b1ff80;
+}
+
+.filterBtn {
+  height: 31px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconFilter {
+  font-size: 20px;
+}
+
+.filterBtn {
+  background-color: #D9EBFF;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.filterBtn:hover .iconFilter {
+  color: #007bff;
+}
+
+/* Kích thước nhỏ hơn 576px */
+@media (max-width: 575.98px) {
+  .iconFilter {
+    font-size: 16px;
+  }
+}

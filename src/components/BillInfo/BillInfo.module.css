@@ -1,0 +1,190 @@
+.billInfo {
+  background-color: #FFF;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.info .title {
+  display: inline-block;
+  min-width: 68px;
+  font-weight: 500;
+  color: #515151;
+}
+
+.billInfo .title,
+.specificAddress,
+.billInfo .info .money,
+.billInfo .totalMoney,
+.billInfo .codeSale .applyBtn,
+.billInfo .comfirmBtn {
+  font-size: 13px;
+}
+
+.billInfo .title {
+  font-weight: 500;
+  color: #515151;
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.billInfo .listItems {
+  transition: all 1s ease-in-out;
+}
+
+.billInfo .listItems .item {
+  animation-name: display-item;
+  animation-duration: .7s;
+  animation-iteration-count: 1;
+}
+
+@keyframes display-item {
+  0% {
+    margin-left: -64px;
+    margin-right: 64px;
+    opacity: 0;
+  }
+
+  100% {
+    margin-left: 0;
+    margin-right: 0;
+    opacity: 1;
+  }
+}
+
+.billInfo .info .money,
+.billInfo .totalMoney {
+  text-align: right;
+  font-weight: 500;
+}
+
+.billInfo .listItems .item {
+  margin-top: 0;
+}
+
+.billInfo .listItems .item:last-child {
+  margin-bottom: 12px;
+}
+
+.billInfo .listItems .title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.billInfo .listItems .title, 
+.billInfo .listItems .money {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 1;
+}
+
+.billInfo .listItems .bookName {
+  display: inline-block;
+  max-width: 132px;
+  padding-right: 3px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.billInfo .info .separate {
+  margin: 6px 0;
+}
+
+.billInfo .specificAddress .iconLocationDot {
+  font-size: 18px;
+}
+
+.billInfo .separate {
+  margin: 14px 0;
+}
+
+.billInfo .headingThrid {
+  margin-bottom: 8px;
+}
+
+.billInfo .codeSale {
+  margin: 8px 0;
+}
+
+.billInfo .codeSale .enterCode {
+  margin-right: 8px;
+}
+
+.billInfo .codeSale .enterCode>input {
+  font-size: 12px;
+}
+
+.billInfo .codeSale .applyBtn {
+  display: block;
+  margin-left: auto;
+  height: 28px;
+}
+
+.billInfo .codeSale .applyBtn,
+.billInfo .comfirmBtn {
+  font-weight: 500;
+}
+
+.billInfo .comfirmBtn {
+  border-color: #D9EBFF;
+}
+
+.billInfo .codeSale .applyBtn:hover,
+.billInfo .comfirmBtn:hover {
+  background-color: #D9EBFF;
+}
+
+.billInfo .comfirmBtn.disabled,
+.billInfo .comfirmBtn.disabled:hover {
+  opacity: 0.5;
+}
+
+.billInfo .totalMoney {
+  color: #F57224;
+}
+
+.billInfo .vat {
+  margin-top: 4px;
+  font-weight: 500;
+  font-size: 10px;
+  text-align: right;
+}
+
+.billInfo .comfirmBtn {
+  display: block;
+  width: 100%;
+  margin: 24px auto 8px auto;
+  color: #4096ff;
+  background-color: #D9EBFF;
+}
+
+.keepShowInvoice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Kích thước nhỏ hơn 992px */
+@media (max-width: 991.98px) {
+  .billInfo {
+    display: none;
+  }
+
+  .keepShowInvoice.billInfo {
+    display: block;
+    width: 358px;
+    height: 332px;
+    margin-top: 12px;
+    overflow-y: scroll;
+  }
+}
+
+/* Kích thước nhỏ hơn 576px */
+@media (max-width: 575.98px) {
+  .info .title {
+    min-width: 48px;
+  }
+}

@@ -1,0 +1,137 @@
+.cart {
+  width: 100%;
+  height: 100%;
+  min-height: 65vh;
+  background-color: #abb0b54d;
+  text-align: center;
+  padding-top: 32px;
+  margin-top: -28px;
+  margin-bottom: -16px;
+  color: #515151;
+}
+
+.cart .checkboxSelectAll {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.selectAll .viewBill {
+  display: none;
+  max-width: 194px;
+}
+
+.selectAll {
+  background-color: #FFF;
+}
+
+.selectAll {
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+.delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart .checkboxSelectAll,
+.selectAll .delete,
+.selectAll .viewBill {
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #515151;
+  transition: all .25s ease-in-out;
+}
+
+.cart .checkboxSelectAll .spanSelectAll {
+  color: #515151;
+}
+
+.cart .books .bookInCart {
+  background-color: #FFF;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  /* max-height: 124px; */
+}
+
+.cart .bookInCart .bookCover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart .bookCover .image {
+  display: inline-block;
+  width: 64px;
+  height: 98px;
+  object-fit: contain;
+  cursor: pointer;
+  position: relative;
+}
+
+.cart .bookInCart .bookInfo .info, 
+.cart .bookInCart .priceAndBuy {
+  margin-bottom: 8px;
+}
+
+.iconTrash,
+.iconFileInvoice {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.selectAll .delete:hover,
+.deleteBook:hover,
+.viewBill:hover {
+  background-color: #D9EBFF;
+}
+
+.invoiceWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Kích thước nhỏ hơn 992px */
+@media (max-width: 991.98px) {
+  .selectAll .viewBill {
+    max-width: 112px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+/* Kích thước nhỏ hơn 768px */
+@media (max-width: 767.98px) {
+
+  .cart .checkboxSelectAll .spanSelectAll,
+  .selectAll .delete,
+  .selectAll .viewBill {
+    font-size: 12px;
+  }
+
+  .selectAll .viewBill {
+    max-width: 94px;
+  }
+}
+
+/* Kích thước nhỏ hơn 576px */
+@media (max-width: 575.98px) {
+  .delete .deleteAll {
+    display: none;
+  }
+
+  .addBook .addBtn {
+    font-size: 12px;
+  }
+}

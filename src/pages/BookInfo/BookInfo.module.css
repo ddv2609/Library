@@ -1,0 +1,242 @@
+.bookInfo {
+  width: 100%;
+  height: 100%;
+  background-color: #abb0b54d;
+  padding-top: 32px;
+  margin-top: -28px;
+  margin-bottom: -16px;
+  color: #515151;
+}
+
+/* Skeleton */
+
+.bookInfo .skeletonBookCover {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.bookInfo .skeletonTitle {
+  width: 100% !important;
+  height: 21px !important;
+}
+/* End Skeleton */
+
+.bookInfo .infoWrap {
+  width: 100%;
+  /* max-height: 382px; */
+  padding: 24px 42px;
+}
+
+.bookInfo .infoWrap .bookCover,
+.bookInfo .infoWrap .infoDetail,
+.bookInfo .infoWrap .features,
+.bookInfo .infoWrap .introduce {
+  padding: 12px 12px;
+  background-color: #FFF;
+  border-radius: 12px;
+  border: 2px solid #D9EBFF;
+}
+
+.bookInfo .infoWrap .bookCover {
+  height: 100%;
+  max-height: 382px;
+}
+
+.bookInfo .infoWrap .infoDetail {
+  height: 100%;
+}
+
+.bookInfo .infoWrap .bookCover .image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.bookInfo .infoWrap .bookCover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookInfo .infoWrap .info {
+  padding: 8px 12px;
+  background-color: #D9EBFF;
+  border-radius: 6px;
+}
+
+.bookInfo .infoWrap .info:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.bookInfo .info .title {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.bookInfo .infoWrap .headingThird {
+  padding-left: 16px;
+}
+
+.bookInfo .infoWrap .headingThird,
+.bookInfo .infoWrap .info .desc,
+.bookInfo .infoWrap .info .stars {
+  font-size: 16px;
+}
+
+.bookInfo .infoWrap .info .desc {
+  text-align: center;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.bookInfo .infoWrap .features {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.bookInfo .infoWrap .desc .stars {
+  margin-right: 4px;
+}
+
+.bookInfo .infoWrap .features .cart,
+.bookInfo .infoWrap .features .comment {
+  text-align: right;
+}
+
+.bookInfo .infoWrap .features .cart {
+  margin-right: 26px;
+}
+
+.bookInfo .infoWrap .features .starIcon,
+.bookInfo .infoWrap .features .cartIcon,
+.bookInfo .infoWrap .features .commentIcon {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 6px 12px;
+  /* background-color: #D9EBFF; */
+  color: #FFF;
+  border-radius: 8px;
+}
+
+.bookInfo .infoWrap .features .starIcon:hover,
+.bookInfo .infoWrap .features .cartIcon:hover,
+.bookInfo .infoWrap .features .commentIcon:hover {
+  opacity: 0.5;
+}
+
+.bookInfo .infoWrap .features .starIcon {
+  background-color: #F7DD2B;
+}
+
+.bookInfo .infoWrap .features .cartIcon {
+  background-color: #F57224;
+}
+
+.bookInfo .infoWrap .features .commentIcon {
+  background-color: #55ACEE;
+}
+
+.bookInfo .infoWrap .introduce .headingThird {
+  font-size: 18px;
+  padding-left: 0;
+  margin-bottom: 8px;
+}
+
+.bookInfo .infoWrap .introduce .content {
+  width: 100%;
+  outline: none;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid #D9EBFF;
+  resize: none;
+  font-size: 16px;
+}
+
+.modalRate {
+  text-align: center;
+}
+
+.modalRate .starsInModal {
+  font-size: 36px;
+}
+
+.modalAddBook {
+  text-align: center;
+}
+
+.modalAddBook .inputField {
+  width: 45%;
+}
+
+.saleOff {
+  color: #FF4C57;
+  font-weight: 500;
+  padding: 0 12px;
+}
+
+.modalPreview {
+  top: 32px;
+}
+
+.modalPreview .avatarPreview {
+  width: 100%;
+  max-height: 80vh;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  object-fit: contain;
+}
+
+/* Kích thước nhỏ hơn 992px */
+@media (max-width: 991.98px) {
+  .bookInfo .infoWrap .headingThird {
+    padding-left: 0;
+  }
+
+  .bookInfo .infoWrap .headingThird,
+  .bookInfo .infoWrap .info .desc,
+  .bookInfo .infoWrap .info .stars {
+    font-size: 13px;
+  }
+
+  .bookInfo .infoWrap .introduce .content {
+    font-size: 13px;
+  }
+
+  .bookInfo .infoWrap .features .cart {
+    margin-right: 20px;
+  }
+}
+
+/* Kích thước nhỏ hơn 768px */
+@media (max-width: 767.98px) {
+  .bookInfo .infoWrap .features .cart {
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .bookInfo .infoWrap .bookCover .image {
+    max-height: 184px;
+  }
+
+  .bookInfo .infoWrap .introduce .headingThird {
+    font-size: 16px;
+  }
+}
+
+/* Kích thước nhỏ hơn 576px */
+@media (max-width: 575.98px) {
+  /* .bookInfo .infoDetail .headingThird {
+    display: none;
+  } */
+
+  .bookInfo .infoWrap .info .desc {
+    text-align: right;
+  }
+
+  .bookInfo .infoWrap .info .stars > li {
+    margin-right: 2px;
+  }
+}

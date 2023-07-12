@@ -1,0 +1,139 @@
+.bookInCart {
+  background-color: #FFF;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+.delete,
+.bookCover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookInCart .image {
+  display: inline-block;
+  width: 64px;
+  height: 98px;
+  object-fit: contain;
+  cursor: pointer;
+  position: relative;
+}
+
+.info .name,
+.info .author,
+.info .sold,
+.info .rate {
+  text-align: left;
+  margin-bottom: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.info {
+  font-size: 14px;
+}
+
+.info .title {
+  display: inline-block;
+  min-width: 68px;
+  font-weight: 500;
+  color: #515151;
+}
+
+.info .rate .stars {
+  font-size: 13px;
+}
+
+.info .rate .stars > li {
+  margin-right: 4px;
+}
+
+.price .cost,
+.price .saleOff,
+.price .currentPrice {
+  margin-bottom: 4px;
+}
+
+.price .saleOff {
+  font-size: 14px;
+  color: #FF4C57;
+  font-weight: 500;
+}
+
+.price .currentPrice {
+  color: #F57224;
+  font-weight: 550;
+}
+
+.priceAndBuy .price {
+  margin-bottom: 12px;
+}
+
+.addBook .addBtn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 6px 12px; */
+}
+
+.addBook .iconAddCart {
+  color: #007bff;
+}
+
+.addBook .inputField {
+  max-width: 64%;
+}
+
+.deleteBook,
+.iconTrash {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.deleteBook:hover {
+  background-color: #D9EBFF;
+}
+
+/* Kích thước nhỏ hơn 576px */
+@media (max-width: 575.98px) {
+  .addBook .addBtn {
+    font-size: 12px;
+  }
+
+  .bookInCart .delete {
+    display: none;
+  }
+
+  .info,
+  .price .cost,
+  .price .saleOff,
+  .price .currentPrice {
+    font-size: 11px;
+  }
+
+  .info .title {
+    min-width: 48px;
+  }
+
+  .info .rate .stars {
+    font-size: 10px;
+  }
+
+  .bookCover {
+    justify-content: flex-start;
+  }
+
+  .image {
+    width: 48px;
+    height: 72px;
+  }
+
+}

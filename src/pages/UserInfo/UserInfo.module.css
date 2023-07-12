@@ -1,0 +1,105 @@
+.userInfo {
+  /* min-height: 380px; */
+  width: 100%;
+  text-align: center;
+}
+
+.avatar {
+  position: relative;
+}
+
+.uploadWrapper {
+  width: 158px;
+  height: 158px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarUpload {
+  cursor: pointer;
+  position: relative;
+}
+
+.iconEye {
+  display: none;
+  color: #ccc;
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.avatarUpload:hover .iconEye {
+  display: inline-block;
+}
+
+.avatarUpload:hover::before {
+  content: '';
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0, 0.3);
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  color: #FFF;
+}
+
+/* .progress {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 128px;
+} */
+
+.avatarUpload {
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.avatarUpload .newAvatar, 
+.avatarUpload .oldAvatar {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+  object-fit: cover;
+  object-position: center;
+}
+
+.avatar .editBtn {
+  max-height: 24px;
+  max-width: 52px;
+  border: none;
+  background-color: #D9EBFF;
+  padding: 0 6px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 12px;
+  left: -8px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #515151;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.avatar .editBtn:hover {
+  color: #0072FF;
+  opacity: 1;
+}
+
+.avatarPreview {
+  width: 100%;
+  max-height: 80vh;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  object-fit: contain;
+}
