@@ -31,13 +31,13 @@ function Cart() {
 
   useEffect(() => {
     const quantitys = [];
-    fetch(`http://localhost:3004/carts/${localStorage.getItem("uid")}`)
+    fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`)
       .then(res => res.json())
       .then(({ books }) => {
         if (books) {
           Promise.all(books.map(({ bookID, quantity }) => {
             quantitys.push(quantity);
-            return fetch(`http://localhost:3004/books/${bookID}`);
+            return fetch(`https://library-db-vercel.vercel.app/books/${bookID}`);
           }))
             .then(([...responses]) => Promise.all(responses.map(res => res.json())))
             .then(([...data]) => {
@@ -87,7 +87,7 @@ function Cart() {
   const handleDeleteBook = (bookID) => {
     const newBooksInCart = booksInCart.filter((book) => book.id !== bookID);
 
-    fetch(`http://localhost:3004/carts/${localStorage.getItem("uid")}`, {
+    fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`, {
       method: "PATCH",
       mode: "cors",
       body: JSON.stringify({
@@ -111,7 +111,7 @@ function Cart() {
       hasChecks.map(({ id }) => IDsChecked.push(id))
       const newBooksInCart = booksInCart.filter((book) => !IDsChecked.includes(book.id));
 
-      fetch(`http://localhost:3004/carts/${localStorage.getItem("uid")}`, {
+      fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`, {
         method: "PATCH",
         mode: "cors",
         body: JSON.stringify({
@@ -140,7 +140,7 @@ function Cart() {
   const handleChangeQuantity = (bookID, quantity) => {
     const newBooksInCart = booksInCart.filter((book) => book.id !== bookID);
 
-    fetch(`http://localhost:3004/carts/${localStorage.getItem("uid")}`, {
+    fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`, {
       method: "PATCH",
       mode: "cors",
       body: JSON.stringify({

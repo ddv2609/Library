@@ -91,7 +91,7 @@ function UserInfo() {
             getDownloadURL(uploadTask.snapshot.ref)
               .then((url) => {
                 const uid = localStorage.getItem("uid");
-                fetch(`http://localhost:3004/users/${uid}`, {
+                fetch(`https://library-db-vercel.vercel.app/users/${uid}`, {
                   method: "PATCH",
                   mode: "cors",
                   body: JSON.stringify({ avatar: url }),
@@ -133,7 +133,7 @@ function UserInfo() {
           deleteObject(itemRef)
             .then(() => {
               const uid = localStorage.getItem("uid");
-              fetch(`http://localhost:3004/users/${uid}`, {
+              fetch(`https://library-db-vercel.vercel.app/users/${uid}`, {
                 method: "PATCH",
                 mode: "cors",
                 body: JSON.stringify({ avatar: null }),
@@ -170,7 +170,7 @@ function UserInfo() {
     e.preventDefault();
     const newUser = { ...userInfo };
     const uid = localStorage.getItem("uid");
-    fetch(`http://localhost:3004/users/${uid}`, {
+    fetch(`https://library-db-vercel.vercel.app/users/${uid}`, {
       method: "PATCH",
       mode: "cors",
       body: JSON.stringify(newUser),
@@ -201,7 +201,7 @@ function UserInfo() {
 
   useEffect(() => {
     const uid = localStorage.getItem("uid");
-    fetch(`http://localhost:3004/users/${uid}`)
+    fetch(`https://library-db-vercel.vercel.app/users/${uid}`)
       .then(res => res.json())
       .then(user => {
         onAuthStateChanged(auth, (info) => {

@@ -223,7 +223,7 @@ function Filter() {
 
     let params = `q=${search}` + (query !== "" ? `&${query}` : query);
 
-    fetch(`http://localhost:3004/books${params !== "" ? `?${params}` : params}`)
+    fetch(`https://library-db-vercel.vercel.app/books${params !== "" ? `?${params}` : params}`)
       .then(res => res.json())
       .then(books => {
         if (sorts.length > 0) {

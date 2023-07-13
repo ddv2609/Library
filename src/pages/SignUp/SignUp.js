@@ -37,7 +37,7 @@ function SignUp() {
 
     await createUserWithEmailAndPassword(auth, user.email, user.password)
       .then((userCredential) => {
-        fetch(`http://localhost:3004/users`, {
+        fetch(`https://library-db-vercel.vercel.app/users`, {
           method: "POST",
           mode: "cors",
           body: JSON.stringify({
