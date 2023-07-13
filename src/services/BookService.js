@@ -1,4 +1,4 @@
-import { deleteComment, editComment, getBookInfo, patchCart, patchRate } from "../utils";
+import { addIntoCart, deleteComment, editComment, getBookInfo, patchCart, patchRate } from "../utils";
 
 export const getBookDetail = async (ID, uid) => {
   const [book, comments, rates, { books }] = await getBookInfo(
@@ -15,8 +15,8 @@ export const patchBookRate = async (ID, bookData, rateData) => {
   return [book, rate];
 }
 
-export const addBookInCart = async (uid, payload) => {
-  const data = await patchCart(`carts/${uid}`, payload);
+export const addBookInCart = async (uid, len, payload) => {
+  const data = await addIntoCart(`carts/${uid}`, len > 0 ? "PATCH" : "POST", payload);
   return data;
 }
 

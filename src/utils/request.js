@@ -81,10 +81,10 @@ export const patchRate = async (pathBooks, booksBody, pathRates, ratesBody) => {
   }
 }
 
-export const patchCart = async (path, payload) => {
+export const addIntoCart = async (path, option, payload) => {
   try {
     const res = await fetch(`${API_DOMAIN}/${path}`, {
-      method: "PATCH",
+      method: `${option}`,
       mode: "cors",
       body: JSON.stringify(payload),
       headers: {

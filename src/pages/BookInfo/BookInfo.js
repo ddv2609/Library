@@ -210,7 +210,7 @@ function BookInfo() {
         //     'Content-Type': 'application/json; charset=UTF-8',
         //   }
         // })
-        addBookInCart(uid, {
+        addBookInCart(uid, booksInCart ? booksInCart.length : -1, {
           books: [
             ...newBooksInCart,
             { bookID: book.id, quantity: addBook }
