@@ -1,21 +1,31 @@
-import { booksInCart, getDetail, save, upload } from "../utils/request";
+import { deleteComment, editComment, getBookInfo, patchCart, patchRate } from "../utils";
 
-export const getBookDetail = async (bookcode) => {
-  const [items, image] = await getDetail(`/books/${bookcode}`, `/books/image/${bookcode}`);
-  return [items, image];
+export const getBookDetail = async (ID, uid) => {
+  const [book, comments, rates, { books }] = await getBookInfo(
+    `books/${ID}`, 
+    `comments/${ID}`, 
+    `rates/${ID}`, 
+    `carts/${uid}`
+  );
+  return [book, comments, rates, { books }];
 }
 
-export const saveBook = async (bookcode, book) => {
-  const data = await save(`/books/new-book`, `/books/save/${bookcode}`, book, bookcode);
+export const patchBookRate = async (ID, bookData, rateData) => {
+  const [book, rate] = await patchRate(`books/${ID}`, bookData, `rates/${ID}`, rateData);
+  return [book, rate];
+}
+
+export const addBookInCart = async (uid, payload) => {
+  const data = await patchCart(`carts/${uid}`, payload);
   return data;
 }
 
-export const uploadBookCover = async (book, image) => {
-  const data = await upload(`/books/save/image/${book.bookcode}`, image);
+export const deleteCommentUser = async (ID, payload) => {
+  const data = await deleteComment(`comments/${ID}`, payload);
   return data;
 }
 
-export const getAllBooksInCart = async (path, user_id) => {
-  const data = await booksInCart(path, user_id);
+export const editCommentUser = async (ID, payload) => {
+  const data = await editComment(`comments/${ID}`, payload);
   return data;
 }

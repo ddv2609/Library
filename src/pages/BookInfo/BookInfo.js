@@ -5,10 +5,11 @@ import { StarOutlined, ShoppingCartOutlined, CommentOutlined, SendOutlined } fro
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd, faSubtract } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
+import { useSelector } from "react-redux";
 
+import { addBookInCart, deleteCommentUser, editCommentUser, getBookDetail, patchBookRate } from "../../services";
 import styles from "./BookInfo.module.css";
 import Comment from "../../components/Comment/Comment";
-import { useSelector } from "react-redux";
 
 function BookInfo() {
   const { ID } = useParams();
@@ -103,35 +104,27 @@ function BookInfo() {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    Promise.all([
-      fetch(`http://localhost:3004/books/${ID}`),
-      fetch(`http://localhost:3004/comments/${ID}`),
-      fetch(`http://localhost:3004/rates/${ID}`),
-      fetch(`http://localhost:3004/carts/${localStorage.getItem("uid")}`)
-    ])
-      .then(([bookResponse, commentsResponse, ratesResponse, cartsResponse]) => Promise.all(
-        [
-          bookResponse.json(),
-          commentsResponse.json(),
-          ratesResponse.json(),
-          cartsResponse.json()
-        ]))
+    const uid = localStorage.getItem("uid");
+    getBookDetail(ID, uid)
       .then(([book, comments, rates, { books }]) => {
         document.title = book.title;
         const bookInCart = books.find((item) => item.bookID === book.id);
         const userVoted = new Map();
-        const currentUID = localStorage.getItem("uid");
+
         rates.list.forEach(({ uid, star }) => {
           userVoted.set(uid, star);
         });
-        if (userVoted.has(currentUID)) {
-          setStarVoted(userVoted.get(currentUID));
-          setStars(userVoted.get(currentUID));
+
+        if (userVoted.has(uid)) {
+          setStarVoted(userVoted.get(uid));
+          setStars(userVoted.get(uid));
         }
+
         if (bookInCart) {
           setQuantityInCart(bookInCart.quantity);
           setAddBook(bookInCart.quantity);
         }
+
         setBooksInCart(books);
         setUserVoted(userVoted);
         setBook(book);
@@ -150,45 +143,25 @@ function BookInfo() {
     const newTotalStars = starVoted === 0 ? book.stars + stars : book.stars - starVoted + stars;
     const newTotalVotes = starVoted === 0 ? book.votes + 1 : book.votes;
     const newList = [];
+
     for (const [uid, star] of userVoted.entries()) {
       newList.push({ uid, star });
     }
-    Promise.all(
-      [
-        fetch(`http://localhost:3004/books/${ID}`, {
-          method: "PATCH",
-          mode: "cors",
-          body: JSON.stringify({
-            stars: newTotalStars,
-            votes: newTotalVotes
-          }),
-          headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-          }
-        }),
-        fetch(`http://localhost:3004/rates/${ID}`, {
-          method: "PATCH",
-          mode: "cors",
-          body: JSON.stringify({
-            list: newList
-          }),
-          headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-          }
-        })
-      ]
-    )
-      .then(([bookRes, rateRes]) => Promise.all([bookRes.json(), rateRes.json()]))
+
+    patchBookRate(ID, {
+      stars: newTotalStars,
+      votes: newTotalVotes
+    }, { list: newList })
       .then(([book,]) => {
         setOpenModalRate(false);
         setConfirmLoading(false);
         setBook(book);
         setStarVoted(stars);
+        message.success("Thực hiện đánh giá thành công!");
       })
   }
 
   const handleAddBookInCart = () => {
-    // console.log(book.id, addBook);
     setConfirmLoading(true);
     if (addBook === quantityInCart) {
       setConfirmLoading(false);
@@ -199,19 +172,23 @@ function BookInfo() {
         onOk() { }
       })
     } else {
-      // message.success("Thực hiện thêm thành công!");
-      // setConfirmLoading(false);
-      // setOpenModalCart(false);
+      const uid = localStorage.getItem("uid");
       if (quantityInCart === 0) {
-        fetch(`http://localhost:3004/carts/${localStorage.getItem("uid")}`, {
-          method: "PATCH",
-          mode: "cors",
-          body: JSON.stringify({
-            books: [...booksInCart, { bookID: book.id, quantity: addBook }]
-          }),
-          headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-          }
+        // fetch(`http://localhost:3004/carts/${localStorage.getItem("uid")}`, {
+        //   method: "PATCH",
+        //   mode: "cors",
+        //   body: JSON.stringify({
+        //     books: [...booksInCart, { bookID: book.id, quantity: addBook }]
+        //   }),
+        //   headers: {
+        //     'Content-Type': 'application/json; charset=UTF-8',
+        //   }
+        // })
+        addBookInCart(uid, {
+          books: [
+            ...booksInCart,
+            { bookID: book.id, quantity: addBook }
+          ]
         })
           .then(() => {
             message.success("Thực hiện thêm thành công!");
@@ -223,15 +200,21 @@ function BookInfo() {
       } else {
         const newBooksInCart = booksInCart.filter((item) => item.bookID !== book.id);
 
-        fetch(`http://localhost:3004/carts/${localStorage.getItem("uid")}`, {
-          method: "PATCH",
-          mode: "cors",
-          body: JSON.stringify({
-            books: [...newBooksInCart, { bookID: book.id, quantity: addBook }]
-          }),
-          headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-          }
+        // fetch(`http://localhost:3004/carts/${localStorage.getItem("uid")}`, {
+        //   method: "PATCH",
+        //   mode: "cors",
+        //   body: JSON.stringify({
+        //     books: [...newBooksInCart, { bookID: book.id, quantity: addBook }]
+        //   }),
+        //   headers: {
+        //     'Content-Type': 'application/json; charset=UTF-8',
+        //   }
+        // })
+        addBookInCart(uid, {
+          books: [
+            ...newBooksInCart,
+            { bookID: book.id, quantity: addBook }
+          ]
         })
           .then(() => {
             message.success("Thực hiện thêm thành công!");
@@ -256,14 +239,6 @@ function BookInfo() {
     setOpenPreview(true)
   }
 
-  // const handleEnterComment = (e) => {
-  //   let text = e.target.value;
-  //   let len = text.length;
-  //   if (text.charCodeAt(len - 1) !== 10) {
-  //     setCommentContent(text);
-  //   }
-  // }
-
   const handleDeleteComment = async (data) => {
     if (actionWithComment.contentID !== undefined) {
       let newListComments;
@@ -272,22 +247,28 @@ function BookInfo() {
       } else {
         newListComments = comments.filter(({ contentID }) => contentID !== actionWithComment.contentID)
       }
-      fetch(`http://localhost:3004/comments/${ID}`, {
-        method: "PATCH",
-        mode: "cors",
-        body: JSON.stringify({
-          contents: newListComments
-        }),
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
-        }
-      })
-        .then(res => res.json())
+      // fetch(`http://localhost:3004/comments/${ID}`, {
+      //   method: "PATCH",
+      //   mode: "cors",
+      //   body: JSON.stringify({
+      //     contents: newListComments
+      //   }),
+      //   headers: {
+      //     'Content-Type': 'application/json; charset=UTF-8',
+      //   }
+      // })
+      //   .then(res => res.json())
+      deleteCommentUser(ID, { contents: newListComments })
         .then(data => {
           setActionWithComment({});
           setComments(data.contents.reverse());
-          if (editComment)
+          if (editComment) {
             setEditComment(false);
+            message.success("Bạn vừa thực hiện chỉnh sửa bình luận!");
+            commentRef.current.focusComment();
+          } else {
+            message.success("Bạn vừa thực hiện xóa bình luận!");
+          }
         })
     }
   }
@@ -303,30 +284,41 @@ function BookInfo() {
       const time = `${now.getHours().toString().padStart(2, '0')}` +
         `:${(now.getMinutes()).toString().padStart(2, '0')}` +
         `:${now.getSeconds().toString().padStart(2, '0')}`;
-      await fetch(`http://localhost:3004/comments/${ID}`, {
-        method: "PATCH",
-        mode: "cors",
-        body: JSON.stringify({
-          contents: [...comments, {
-            contentID: Date.now(),
-            uid: localStorage.getItem("uid"),
-            name: user.firstName + " " + user.lastName,
-            commentTime: `${time} ${date}`,
-            comment: sendComment
-          }]
-        }),
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
-        }
+      // await fetch(`http://localhost:3004/comments/${ID}`, {
+      //   method: "PATCH",
+      //   mode: "cors",
+      //   body: JSON.stringify({
+      //     contents: [...comments, {
+      //       contentID: Date.now(),
+      //       uid: localStorage.getItem("uid"),
+      //       name: user.firstName + " " + user.lastName,
+      //       commentTime: `${time} ${date}`,
+      //       comment: sendComment
+      //     }]
+      //   }),
+      //   headers: {
+      //     'Content-Type': 'application/json; charset=UTF-8',
+      //   }
+      // })
+      //   .then(res => res.json())
+      await editCommentUser(ID, {
+        contents: [...comments, {
+          contentID: Date.now(),
+          uid: localStorage.getItem("uid"),
+          name: user.firstName + " " + user.lastName,
+          commentTime: `${time} ${date}`,
+          comment: sendComment
+        }]
       })
-        .then(res => res.json())
         .then(data => {
           newData = data;
           if (!editComment) {
             setComments(data.contents.reverse());
+            message.success("Bạn vừa đăng một bình luận mới!");
           }
           setCommentContent("");
           commentRef.current.cancelDisabled();
+          commentRef.current.focusComment();
         })
       if (editComment) {
         await handleDeleteComment(newData);

@@ -107,15 +107,22 @@ function UserInfo() {
                     }));
                     setUserInfo(user);
                     setUpLoad(false);
+                    message.success("Ảnh đại diện của bạn đã được thay đổi!");
                   })
-                  .catch(err => console.error(`Error when trying upload user avatar: ${err}`))
+                  .catch(err => {
+                    message.error("Xảy ra lỗi trong quá trình cập nhật ảnh đại diện");
+                    console.error(`Error when trying upload user avatar: ${err}`)
+                  })
                 // setEdit(false);
               })
               .then(() => setPercent(0))
           }
         );
       })
-      .catch((err) => console.error(`Error when trying list all avatar images: ${err}`))
+      .catch((err) => {
+        message.error("Xảy ra lỗi trong quá trình cập nhật ảnh đại diện");
+        console.error(`Error when trying list all avatar images: ${err}`)
+      })
   }
 
   const deleteAvatar = async () => {
@@ -141,6 +148,7 @@ function UserInfo() {
                     id: uid
                   }));
                   setUserInfo(user);
+                  message.success("Ảnh đại diện của bạn đã được xóa!");
                 })
                 .catch(err => console.error(`Error when trying delete user avatar: ${err}`))
             })
@@ -171,10 +179,13 @@ function UserInfo() {
       }
     })
       .then(res => res.json())
-      .then(user => dispatch(signIn({
-        ...user,
-        uid
-      })))
+      .then(user => {
+        dispatch(signIn({
+          ...user,
+          uid
+        }));
+        message.success("Thông tin cá nhân đã được sửa đổi!")
+      })
       .catch(err => console.error(`Error when trying get user info: ${err}`))
     setEditInfo(false);
   }
