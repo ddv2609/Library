@@ -16,7 +16,7 @@ export const patchBookRate = async (ID, bookData, rateData) => {
 }
 
 export const addBookInCart = async (uid, len, payload) => {
-  const data = await addIntoCart(`carts/${uid}`, len > 0 ? "PATCH" : "POST", payload);
+  const data = await addIntoCart(len > 0 ? `carts/${uid}` : "carts", len > 0 ? "PATCH" : "POST", payload);
   return data;
 }
 
