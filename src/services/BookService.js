@@ -12,7 +12,6 @@ export const getBookDetail = async (ID, uid) => {
 
 export const patchBookRate = async (ID, bookData, rateData) => {
   const [book, rate] = await patchRate(`books/${ID}`, bookData, `rates/${ID}`, rateData);
-  console.log(book, rate);
   return [book, rate];
 }
 

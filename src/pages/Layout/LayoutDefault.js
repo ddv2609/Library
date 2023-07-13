@@ -5,10 +5,11 @@ import { useDispatch } from "react-redux";
 import { signIn } from "../../actions";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getUserInfo } from "../../services";
 
 function LayoutDefault() {
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,7 +18,10 @@ function LayoutDefault() {
       // fetch(`https://library-db-vercel.vercel.app/users/${uid}`)
       //   .then(res => res.json())
       getUserInfo(uid)
-        .then(user => dispatch(signIn(user)))
+        .then(user => {
+          dispatch(signIn(user));
+          setLoading(false);
+        })
         .catch(err => console.error(`Error when trying get user info: ${err}`))
     }
   }, [])
@@ -28,7 +32,7 @@ function LayoutDefault() {
         backgroundColor: "#fff"
       }}
     >
-      <Header />
+      <Header loading={loading} />
       <Outlet />
       <Footer />
     </Layout>

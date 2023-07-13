@@ -13,7 +13,7 @@ import Navigate from "../Navigate/Navigate";
 import DrawerMenu from "../DrawerMenu/DrawerMenu";
 import { auth } from "../../configs";
 
-function Header() {
+function Header({ loading }) {
   const [showDrawer, setShowDrawer] = useState(false);
   const user = useSelector(state => state.userReducer);
   const search = useSelector(state => state.searchReducer);
@@ -155,7 +155,7 @@ function Header() {
           </div>
         </div>
         <div className={styles.navigate}>
-          <Navigate user={user} actions={actions} notifies={notifies} />
+          <Navigate loading={loading} user={user} actions={actions} notifies={notifies} />
         </div>
         <div className={styles.navBars}>
           <FontAwesomeIcon

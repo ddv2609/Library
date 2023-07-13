@@ -5,7 +5,7 @@ import { Dropdown, Space } from "antd";
 
 import styles from "./Navigate.module.css";
 
-function Navigate({ user, actions, notifies }) {
+function Navigate({ loading, user, actions, notifies }) {
   return (
     <div className={styles.pages}>
       <ul className={styles.unorderList}>
@@ -20,51 +20,53 @@ function Navigate({ user, actions, notifies }) {
             </Space>
           </Link>
         </li>
-        {user.id ? (
-          <>
-            <li className={styles.list}>
-              <Link className={styles.anchor} to='/cart'>
-                <Space size={6} align="center">
-                  <FontAwesomeIcon icon={faBagShopping} className={styles.icon} />
-                  Cart
-                </Space>
-              </Link>
-            </li>
-            <li className={styles.list}>
-              <Link className={styles.anchor} to='/filter'>
-                <Space size={6} align="center">
-                  <FontAwesomeIcon icon={faFilter} className={styles.icon} />
-                  Filter
-                </Space>
-              </Link>
-            </li>
-            <li className={styles.list}>
-              <div className={styles.notify}>
+        {loading ? (
+          user.uid ? (
+            <>
+              <li className={styles.list}>
+                <Link className={styles.anchor} to='/cart'>
+                  <Space size={6} align="center">
+                    <FontAwesomeIcon icon={faBagShopping} className={styles.icon} />
+                    Cart
+                  </Space>
+                </Link>
+              </li>
+              <li className={styles.list}>
+                <Link className={styles.anchor} to='/filter'>
+                  <Space size={6} align="center">
+                    <FontAwesomeIcon icon={faFilter} className={styles.icon} />
+                    Filter
+                  </Space>
+                </Link>
+              </li>
+              <li className={styles.list}>
+                <div className={styles.notify}>
+                  <Dropdown
+                    menu={{ items: notifies }}
+                    placement="bottomRight"
+                    arrow={{ pointAtCenter: true }}
+                    trigger="click"
+                  >
+                    <FontAwesomeIcon icon={faBell} className={styles.notifyIcon} />
+                  </Dropdown>
+                </div>
+              </li>
+              <li className={styles.list}>
                 <Dropdown
-                  menu={{ items: notifies }}
+                  menu={{ items: actions }}
                   placement="bottomRight"
                   arrow={{ pointAtCenter: true }}
                   trigger="click"
                 >
-                  <FontAwesomeIcon icon={faBell} className={styles.notifyIcon} />
+                  <Space>
+                    <div className={styles.userIcon}>
+                      <img className={styles.avatar} src={user.avatar || "/avatar.png"} alt="Avatar" />
+                    </div>
+                  </Space>
                 </Dropdown>
-              </div>
-            </li>
-            <li className={styles.list}>
-              <Dropdown
-                menu={{ items: actions }}
-                placement="bottomRight"
-                arrow={{ pointAtCenter: true }}
-                trigger="click"
-              >
-                <Space>
-                  <div className={styles.userIcon}>
-                    <img className={styles.avatar} src={user.avatar || "/avatar.png"} alt="Avatar" />
-                  </div>
-                </Space>
-              </Dropdown>
-            </li>
-          </>
+              </li>
+            </>
+          ) : (<></>)
         ) : (
           <>
             <li className={styles.list}>
