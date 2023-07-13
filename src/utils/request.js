@@ -7,7 +7,7 @@ export const logIn = async (path, user) => {
   try {
     const res = await fetch(`${API_DOMAIN}/${path}`, {
       method: "POST",
-      // mode: "cors",
+      mode: "cors",
       body: JSON.stringify(user),
       headers: {
         'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export const signUp = async (path, user) => {
   try {
     const res = await fetch(`${API_DOMAIN}/${path}`, {
       method: "POST",
-      // mode: "cors",
+      mode: "cors",
       body: JSON.stringify(user),
       headers: {
         'Content-Type': 'application/json',
@@ -54,10 +54,9 @@ export const getBookInfo = async (pathBooks, pathComments, pathRates, pathCarts)
 
 export const patchRate = async (pathBooks, booksBody, pathRates, ratesBody) => {
   try {
-    console.log(booksBody, ratesBody);
     const bookRes = await fetch(`${API_DOMAIN}/${pathBooks}`, {
       method: "PATCH",
-      // mode: "cors",
+      mode: "cors",
       body: JSON.stringify(booksBody),
       headers: {
         'Content-Type': 'application/json',
@@ -67,7 +66,7 @@ export const patchRate = async (pathBooks, booksBody, pathRates, ratesBody) => {
 
     const rateRes = await fetch(`${API_DOMAIN}/${pathRates}`, {
       method: "PATCH",
-      // mode: "cors",
+      mode: "cors",
       body: JSON.stringify(ratesBody),
       headers: {
         'Content-Type': 'application/json',
@@ -85,7 +84,7 @@ export const patchCart = async (path, payload) => {
   try {
     const res = await fetch(`${API_DOMAIN}/${path}`, {
       method: "PATCH",
-      // mode: "cors",
+      mode: "cors",
       body: JSON.stringify(payload),
       headers: {
         'Content-Type': 'application/json',
@@ -102,7 +101,7 @@ export const deleteComment = async (path, payload) => {
   try {
     const res = await fetch(`${API_DOMAIN}/${path}`, {
       method: "PATCH",
-      // mode: "cors",
+      mode: "cors",
       body: JSON.stringify(payload),
       headers: {
         'Content-Type': 'application/json',
@@ -119,7 +118,7 @@ export const editComment = async (path, payload) => {
   try {
     const res = await fetch(`${API_DOMAIN}/${path}`, {
       method: "PATCH",
-      // mode: "cors",
+      mode: "cors",
       body: JSON.stringify(payload),
       headers: {
         'Content-Type': 'application/json',
@@ -145,7 +144,7 @@ export const deleteCart = async (path, payload) => {
   try {
     const res = await fetch(`${API_DOMAIN}/${path}`, {
       method: "PATCH",
-      // mode: "cors",
+      mode: "cors",
       body: JSON.stringify(payload),
       headers: {
         'Content-Type': 'application/json',
@@ -163,7 +162,7 @@ export const changeQuantity = async (path, payload) => {
   try {
     const res = await fetch(`${API_DOMAIN}/${path}`, {
       method: "PATCH",
-      // mode: "cors",
+      mode: "cors",
       body: JSON.stringify(payload),
       headers: {
         'Content-Type': 'application/json',
@@ -214,7 +213,7 @@ export const postUser = async (path, payload) => {
   try {
     const res = await fetch(`${API_DOMAIN}/${path}`, {
       method: "POST",
-      // mode: "cors",
+      mode: "cors",
       body: JSON.stringify(payload),
       headers: {
         'Content-Type': 'application/json',
@@ -231,7 +230,7 @@ export const changeUser = async (path, payload) => {
   try {
     const res = await fetch(`${API_DOMAIN}/${path}`, {
       method: "PATCH",
-      // mode: "cors",
+      mode: "cors",
       body: JSON.stringify(payload),
       headers: {
         'Content-Type': 'application/json',
