@@ -20,7 +20,7 @@ function Navigate({ loading, user, actions, notifies }) {
             </Space>
           </Link>
         </li>
-        {loading ? (
+        {loading || user.uid ? (
           user.uid ? (
             <>
               <li className={styles.list}>
