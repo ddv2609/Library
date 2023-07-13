@@ -1,6 +1,6 @@
 // const API_DOMAIN = process.env.REACT_APP_API_BASE_URL;
-export const API_DOMAIN = "https://library-db-vercel.vercel.app";
-// export const API_DOMAIN = "http://localhost:3004";
+// export const API_DOMAIN = "https://library-db-vercel.vercel.app";
+export const API_DOMAIN = "http://localhost:3004";
 
 export const logIn = async (path, user) => {
   try {
@@ -60,7 +60,7 @@ export const patchRate = async (pathBooks, booksBody, pathRates, ratesBody) => {
         'Accept': 'application/json'
       }
     });
-    
+
     const rateRes = await fetch(`${API_DOMAIN}/${pathRates}`, {
       method: "PATCH",
       mode: "cors",
