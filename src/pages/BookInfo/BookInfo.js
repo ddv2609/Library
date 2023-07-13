@@ -108,7 +108,7 @@ function BookInfo() {
     getBookDetail(ID, uid)
       .then(([book, comments, rates, { books }]) => {
         document.title = book.title;
-        const bookInCart = books.find((item) => item.bookID === book.id);
+        const bookInCart = books ? books.find((item) => item.bookID === book.id) : [];
         const userVoted = new Map();
 
         rates.list.forEach(({ uid, star }) => {
