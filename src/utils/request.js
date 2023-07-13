@@ -53,6 +53,7 @@ export const getBookInfo = async (pathBooks, pathComments, pathRates, pathCarts)
 
 export const patchRate = async (pathBooks, booksBody, pathRates, ratesBody) => {
   try {
+    console.log(booksBody, ratesBody);
     const bookRes = await fetch(`${API_DOMAIN}/${pathBooks}`, {
       method: "PATCH",
       // mode: "cors",
