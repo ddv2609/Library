@@ -306,6 +306,7 @@ function BookInfo() {
           contentID: Date.now(),
           uid: localStorage.getItem("uid"),
           name: user.firstName + " " + user.lastName,
+          avatar: user.avatar,
           commentTime: `${time} ${date}`,
           comment: sendComment
         }]

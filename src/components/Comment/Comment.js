@@ -73,7 +73,7 @@ return (
               <Row>
                 <Col xs={3} sm={2} md={2} lg={1}>
                   <div className={styles.avatar}>
-                    <img src="/avatar.png" alt="Avatar" className={styles.image} />
+                    <img src={comment.avatar || "/avatar.png"} alt="Avatar" className={styles.image} />
                   </div>
                 </Col>
                 <Col xs={21} sm={22} md={22} lg={23}>
