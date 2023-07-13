@@ -475,7 +475,7 @@ function BookInfo() {
       <Modal
         title={
           <>
-            {quantityInCart === 0 ? (
+            {!quantityInCart ? (
               <>
                 {`Bạn muốn thêm bao nhiêu cuốn "${book.title}" vào giỏ hàng?`}
               </>
