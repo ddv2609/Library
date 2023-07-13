@@ -20,8 +20,8 @@ function Navigate({ loading, user, actions, notifies }) {
             </Space>
           </Link>
         </li>
-        {loading || user.uid ? (
-          user.uid ? (
+        {loading || user.id ? (
+          user.id ? (
             <>
               <li className={styles.list}>
                 <Link className={styles.anchor} to='/cart'>
