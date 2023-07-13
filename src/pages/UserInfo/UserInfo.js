@@ -181,8 +181,8 @@ function UserInfo() {
     //     'Content-Type': 'application/json; charset=UTF-8',
     //   }
     // })
+    // .then(res => res.json())
     changeUserInfo(uid, newUser)
-      .then(res => res.json())
       .then(user => {
         dispatch(signIn({
           ...user,

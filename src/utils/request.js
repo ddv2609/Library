@@ -13,7 +13,7 @@ export const logIn = async (path, user) => {
         'Accept': 'application/json'
       }
     })
-    return res;
+    return res.json();
   } catch (err) {
     console.error(`Error when sign in: ${err}`)
   }
@@ -30,7 +30,7 @@ export const signUp = async (path, user) => {
         'Accept': 'application/json'
       }
     })
-    return res;
+    return res.json();
   } catch (err) {
     console.error(`Error when sign up: ${err}`)
   }
