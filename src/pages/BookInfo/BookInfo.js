@@ -198,7 +198,7 @@ function BookInfo() {
           })
           .catch((err) => console.error(`Error when trying add book has ID ${book.id} in cart: ${err}`))
       } else {
-        const newBooksInCart = booksInCart.filter((item) => item.bookID !== book.id);
+        const newBooksInCart = booksInCart ? booksInCart.filter((item) => item.bookID !== book.id) : [];
 
         // fetch(`http://localhost:3004/carts/${localStorage.getItem("uid")}`, {
         //   method: "PATCH",
