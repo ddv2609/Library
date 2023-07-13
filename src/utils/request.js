@@ -51,25 +51,25 @@ export const getBookInfo = async (pathBooks, pathComments, pathRates, pathCarts)
 
 export const patchRate = async (pathBooks, booksBody, pathRates, ratesBody) => {
   try {
-    const [bookRes, rateRes] = await Promise.all([
-      fetch(`${API_DOMAIN}/${pathBooks}`, {
-        method: "PATCH",
-        mode: "cors",
-        body: JSON.stringify(booksBody),
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
-        }
-      }),
-      fetch(`${API_DOMAIN}/${pathRates}`, {
-        method: "PATCH",
-        mode: "cors",
-        body: JSON.stringify(ratesBody),
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-      })
-    ]);
+    const bookRes = await fetch(`${API_DOMAIN}/${pathBooks}`, {
+      method: "PATCH",
+      mode: "cors",
+      body: JSON.stringify(booksBody),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    });
+    
+    const rateRes = await fetch(`${API_DOMAIN}/${pathRates}`, {
+      method: "PATCH",
+      mode: "cors",
+      body: JSON.stringify(ratesBody),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
 
     return Promise.all([bookRes.json(), rateRes.json()]);
   } catch (err) {
