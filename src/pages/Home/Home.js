@@ -4,25 +4,32 @@ import { useEffect, useState } from "react";
 import styles from "./Home.module.css";
 import NewRelease from "../../components/NewRelease/NewRelease";
 import BookRecommend from "../../components/BookRecommend/BookRecommend";
+import { getBooksInHome } from "../../services";
 
 function Home() {
-  const [booksRecommend, setBooksRecommend] = useState([]); 
+  const [booksRecommend, setBooksRecommend] = useState([]);
   const [booksNewRelease, setbooksNewRelease] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Trang chủ";
 
-    fetch("https://library-db-vercel.vercel.app/books?_sort=quantitySold,votes&_order=desc,desc&_start=0&_limit=24")
-      .then(res => res.json())
-      .then(recommend => {
-        fetch("https://library-db-vercel.vercel.app/books?_sort=releaseDate&_order=desc&_start=0&_limit=24")
-          .then(res => res.json())
-          .then(release => {
-            setBooksRecommend(recommend);
-            setbooksNewRelease(release);
-          })
-      })
+    // fetch("https://library-db-vercel.vercel.app/books?_sort=quantitySold,votes&_order=desc,desc&_start=0&_limit=24")
+    //   .then(res => res.json())
+    //   .then(recommend => {
+    //     fetch("https://library-db-vercel.vercel.app/books?_sort=releaseDate&_order=desc&_start=0&_limit=24")
+    //       .then(res => res.json())
+    //       .then(release => {
+    //         setBooksRecommend(recommend);
+    //         setbooksNewRelease(release);
+    //       })
+    //   })
+    getBooksInHome(`books?_sort=quantitySold,votes&_order=desc,desc&_start=0&_limit=24`,
+      `books?_sort=releaseDate&_order=desc&_start=0&_limit=24`
+    ).then(([recommend, release]) => {
+      setBooksRecommend(recommend);
+      setbooksNewRelease(release);
+    })
 
     return () => {
       document.title = "Library";
@@ -31,10 +38,10 @@ function Home() {
 
   return (
     <div className={clsx([styles.home, "container"])}>
-      <BookRecommend 
+      <BookRecommend
         booksRecommend={booksRecommend}
       />
-      <NewRelease 
+      <NewRelease
         booksNewRelease={booksNewRelease}
       />
     </div>

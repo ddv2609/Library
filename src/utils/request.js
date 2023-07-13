@@ -1,5 +1,6 @@
 // const API_DOMAIN = process.env.REACT_APP_API_BASE_URL;
-const API_DOMAIN = "https://library-db-vercel.vercel.app";
+export const API_DOMAIN = "https://library-db-vercel.vercel.app";
+// export const API_DOMAIN = "http://localhost:3004";
 
 export const logIn = async (path, user) => {
   try {
@@ -64,14 +65,15 @@ export const patchRate = async (pathBooks, booksBody, pathRates, ratesBody) => {
         mode: "cors",
         body: JSON.stringify(ratesBody),
         headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         }
       })
     ]);
 
     return Promise.all([bookRes.json(), rateRes.json()]);
   } catch (err) {
-    console.error(`Error why trying patch book rate: ${err}`);
+    console.error(`Error when trying patch book rate: ${err}`);
   }
 }
 
@@ -120,5 +122,114 @@ export const editComment = async (path, payload) => {
     return res.json();
   } catch (err) {
     console.error(`Error when trying edit comment: ${err}`);
+  }
+}
+
+export const getCart = async (path) => {
+  try {
+    const res = await fetch(`${API_DOMAIN}/${path}`);
+    return res.json();
+  } catch (err) {
+    console.error(`Error when trying get books in cart: ${err}`);
+  }
+}
+
+export const deleteCart = async (path, payload) => {
+  try {
+    const res = await fetch(`${API_DOMAIN}/${path}`, {
+      method: "PATCH",
+      mode: "cors",
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      }
+    });
+
+    return res.json();
+  } catch (err) {
+    console.error(`Error when trying delete book in cart: ${err}`);
+  }
+}
+
+export const changeQuantity = async (path, payload) => {
+  try {
+    const res = await fetch(`${API_DOMAIN}/${path}`, {
+      method: "PATCH",
+      mode: "cors",
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      }
+    });
+
+    return res.json();
+  } catch (err) {
+    console.error(`Error when trying change quantity book in cart: ${err}`);
+  }
+}
+
+export const getBooks = async (path) => {
+  try {
+    const res = await fetch(`${API_DOMAIN}/${path}`);
+    return res.json();
+  } catch (err) {
+    console.error(`Error when trying get books: ${err}`);
+  }
+}
+
+export const getHome = async (pathRecommend, pathNewRelease) => {
+  try {
+    const [recommendRes, releaseRes] = await Promise.all(
+      [
+        fetch(`${API_DOMAIN}/${pathRecommend}`),
+        fetch(`${API_DOMAIN}/${pathNewRelease}`)
+      ]
+    )
+
+    return Promise.all([recommendRes.json(), releaseRes.json()]);
+  } catch (err) {
+    console.error(`Error when trying get books in home page: ${err}`);
+  }
+}
+
+export const getUser = async (path) => {
+  try {
+    const res = await fetch(`${API_DOMAIN}/${path}`);
+    return res.json();
+  } catch (err) {
+    console.error(`Error when trying get user info: ${err}`);
+  }
+}
+
+export const postUser = async (path, payload) => {
+  try {
+    const res = await fetch(`${API_DOMAIN}/${path}`, {
+      method: "POST",
+      mode: "cors",
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      }
+    })
+    return res.json();
+  } catch (err) {
+    console.error(`Error when trying post user info: ${err}`);
+  }
+}
+
+export const changeUser = async (path, payload) => {
+  try {
+    const res = await fetch(`${API_DOMAIN}/${path}`, {
+      method: "PATCH",
+      mode: "cors",
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      }
+    })
+
+    return res.json();
+  } catch (err) {
+    console.error(`Error when trying change user info: ${err}`);
   }
 }

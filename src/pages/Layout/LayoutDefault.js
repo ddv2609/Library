@@ -6,6 +6,7 @@ import { signIn } from "../../actions";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { useEffect } from "react";
+import { getUserInfo } from "../../services";
 
 function LayoutDefault() {
   const dispatch = useDispatch();
@@ -13,8 +14,9 @@ function LayoutDefault() {
   useEffect(() => {
     const uid = localStorage.getItem("uid");
     if (uid !== undefined) {
-      fetch(`https://library-db-vercel.vercel.app/users/${uid}`)
-        .then(res => res.json())
+      // fetch(`https://library-db-vercel.vercel.app/users/${uid}`)
+      //   .then(res => res.json())
+      getUserInfo(uid)
         .then(user => dispatch(signIn(user)))
         .catch(err => console.error(`Error when trying get user info: ${err}`))
     }

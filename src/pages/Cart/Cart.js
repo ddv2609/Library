@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileInvoice, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
+import { changeQuantityBookInCart, deleteBookInCart, getBooksInCart } from "../../services";
+import { API_DOMAIN } from "../../utils";
 import styles from "./Cart.module.css";
 import Error404 from "../../components/Error/Error404";
 import BillInfo from "../../components/BillInfo/BillInfo";
@@ -31,13 +33,14 @@ function Cart() {
 
   useEffect(() => {
     const quantitys = [];
-    fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`)
-      .then(res => res.json())
+    // fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`)
+    //   .then(res => res.json())
+    getBooksInCart(localStorage.getItem("uid"))
       .then(({ books }) => {
         if (books) {
           Promise.all(books.map(({ bookID, quantity }) => {
             quantitys.push(quantity);
-            return fetch(`https://library-db-vercel.vercel.app/books/${bookID}`);
+            return fetch(`${API_DOMAIN}/books/${bookID}`);
           }))
             .then(([...responses]) => Promise.all(responses.map(res => res.json())))
             .then(([...data]) => {
@@ -87,15 +90,18 @@ function Cart() {
   const handleDeleteBook = (bookID) => {
     const newBooksInCart = booksInCart.filter((book) => book.id !== bookID);
 
-    fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`, {
-      method: "PATCH",
-      mode: "cors",
-      body: JSON.stringify({
-        books: newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))
-      }),
-      headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
-      }
+    // fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`, {
+    //   method: "PATCH",
+    //   mode: "cors",
+    //   body: JSON.stringify({
+    //     books: newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json; charset=UTF-8',
+    //   }
+    // })
+    deleteBookInCart(localStorage.getItem("uid"), {
+      books: newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))
     })
       .then(() => {
         message.success("Thực hiện xóa thành công!");
@@ -111,15 +117,18 @@ function Cart() {
       hasChecks.map(({ id }) => IDsChecked.push(id))
       const newBooksInCart = booksInCart.filter((book) => !IDsChecked.includes(book.id));
 
-      fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`, {
-        method: "PATCH",
-        mode: "cors",
-        body: JSON.stringify({
-          books: newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))
-        }),
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
-        }
+      // fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`, {
+      //   method: "PATCH",
+      //   mode: "cors",
+      //   body: JSON.stringify({
+      //     books: newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))
+      //   }),
+      //   headers: {
+      //     'Content-Type': 'application/json; charset=UTF-8',
+      //   }
+      // })
+      deleteBookInCart(localStorage.getItem("uid"), {
+        books: newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))
       })
         .then(() => {
           message.success("Thực hiện xóa thành công!");
@@ -140,15 +149,18 @@ function Cart() {
   const handleChangeQuantity = (bookID, quantity) => {
     const newBooksInCart = booksInCart.filter((book) => book.id !== bookID);
 
-    fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`, {
-      method: "PATCH",
-      mode: "cors",
-      body: JSON.stringify({
-        books: [...(newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))), { bookID, quantity }]
-      }),
-      headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
-      }
+    // fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`, {
+    //   method: "PATCH",
+    //   mode: "cors",
+    //   body: JSON.stringify({
+    //     books: [...(newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))), { bookID, quantity }]
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json; charset=UTF-8',
+    //   }
+    // })
+    changeQuantityBookInCart(localStorage.getItem("uid"), {
+      books: [...(newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))), { bookID, quantity }]
     })
       .then(() => {
         message.success("Thực hiện thêm thành công!");

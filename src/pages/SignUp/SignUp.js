@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../configs";
 
 import styles from "./SignUp.module.css";
+import { postUserInfo } from "../../services";
 // import { signUp } from "../../utils";
 
 function SignUp() {
@@ -37,18 +38,24 @@ function SignUp() {
 
     await createUserWithEmailAndPassword(auth, user.email, user.password)
       .then((userCredential) => {
-        fetch(`https://library-db-vercel.vercel.app/users`, {
-          method: "POST",
-          mode: "cors",
-          body: JSON.stringify({
-            id: userCredential.user.uid,
-            username: user.username,
-            firstName: user.firstName,
-            lastName: user.lastName
-          }),
-          headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-          }
+        // fetch(`https://library-db-vercel.vercel.app/users`, {
+        //   method: "POST",
+        //   mode: "cors",
+        //   body: JSON.stringify({
+        //     id: userCredential.user.uid,
+        //     username: user.username,
+        //     firstName: user.firstName,
+        //     lastName: user.lastName
+        //   }),
+        //   headers: {
+        //     'Content-Type': 'application/json; charset=UTF-8',
+        //   }
+        // })
+        postUserInfo({
+          id: userCredential.user.uid,
+          username: user.username,
+          firstName: user.firstName,
+          lastName: user.lastName
         })
           .then(() => {
             setLoading(false);

@@ -11,6 +11,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import styles from "./UserInfo.module.css";
 import Error404 from "../../components/Error/Error404";
 import DetailUserInfo from "../../components/DetailUserInfo/DetailUserInfo";
+import { changeUserInfo, getUserInfo } from "../../services";
 
 function UserInfo() {
   const [imageUrl, setImageUrl] = useState();
@@ -91,15 +92,16 @@ function UserInfo() {
             getDownloadURL(uploadTask.snapshot.ref)
               .then((url) => {
                 const uid = localStorage.getItem("uid");
-                fetch(`https://library-db-vercel.vercel.app/users/${uid}`, {
-                  method: "PATCH",
-                  mode: "cors",
-                  body: JSON.stringify({ avatar: url }),
-                  headers: {
-                    'Content-Type': 'application/json; charset=UTF-8',
-                  }
-                })
-                  .then(res => res.json())
+                // fetch(`https://library-db-vercel.vercel.app/users/${uid}`, {
+                //   method: "PATCH",
+                //   mode: "cors",
+                //   body: JSON.stringify({ avatar: url }),
+                //   headers: {
+                //     'Content-Type': 'application/json; charset=UTF-8',
+                //   }
+                // })
+                //   .then(res => res.json())
+                changeUserInfo(uid, { avatar: url })
                   .then(user => {
                     dispatch(signIn({
                       ...user,
@@ -133,15 +135,16 @@ function UserInfo() {
           deleteObject(itemRef)
             .then(() => {
               const uid = localStorage.getItem("uid");
-              fetch(`https://library-db-vercel.vercel.app/users/${uid}`, {
-                method: "PATCH",
-                mode: "cors",
-                body: JSON.stringify({ avatar: null }),
-                headers: {
-                  'Content-Type': 'application/json; charset=UTF-8',
-                }
-              })
-                .then(res => res.json())
+              // fetch(`https://library-db-vercel.vercel.app/users/${uid}`, {
+              //   method: "PATCH",
+              //   mode: "cors",
+              //   body: JSON.stringify({ avatar: null }),
+              //   headers: {
+              //     'Content-Type': 'application/json; charset=UTF-8',
+              //   }
+              // })
+              //   .then(res => res.json())
+              changeUserInfo(uid, { avatar: null })
                 .then(user => {
                   dispatch(signIn({
                     ...user,
@@ -170,14 +173,15 @@ function UserInfo() {
     e.preventDefault();
     const newUser = { ...userInfo };
     const uid = localStorage.getItem("uid");
-    fetch(`https://library-db-vercel.vercel.app/users/${uid}`, {
-      method: "PATCH",
-      mode: "cors",
-      body: JSON.stringify(newUser),
-      headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
-      }
-    })
+    // fetch(`https://library-db-vercel.vercel.app/users/${uid}`, {
+    //   method: "PATCH",
+    //   mode: "cors",
+    //   body: JSON.stringify(newUser),
+    //   headers: {
+    //     'Content-Type': 'application/json; charset=UTF-8',
+    //   }
+    // })
+    changeUserInfo(uid, newUser)
       .then(res => res.json())
       .then(user => {
         dispatch(signIn({
@@ -201,8 +205,9 @@ function UserInfo() {
 
   useEffect(() => {
     const uid = localStorage.getItem("uid");
-    fetch(`https://library-db-vercel.vercel.app/users/${uid}`)
-      .then(res => res.json())
+    // fetch(`https://library-db-vercel.vercel.app/users/${uid}`)
+    //   .then(res => res.json())
+    getUserInfo(uid)
       .then(user => {
         onAuthStateChanged(auth, (info) => {
           if (info) {

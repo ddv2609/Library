@@ -11,6 +11,7 @@ import FilterStatus from "../../components/FilterStatus/FilterStatus";
 import BooksList from "../../components/BooksList/BooksList";
 import BookFilter from "../../components/BookFilter/BookFilter";
 import Search from "antd/es/input/Search";
+import { getBooksByParams } from "../../services";
 
 function Filter() {
   const dispatch = useDispatch();
@@ -223,8 +224,9 @@ function Filter() {
 
     let params = `q=${search}` + (query !== "" ? `&${query}` : query);
 
-    fetch(`https://library-db-vercel.vercel.app/books${params !== "" ? `?${params}` : params}`)
-      .then(res => res.json())
+    // fetch(`https://library-db-vercel.vercel.app/books${params !== "" ? `?${params}` : params}`)
+    //   .then(res => res.json())
+    getBooksByParams(params)
       .then(books => {
         if (sorts.length > 0) {
           books.sort(compare);
