@@ -9,7 +9,8 @@ export const logIn = async (path, user) => {
       mode: "cors",
       body: JSON.stringify(user),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     })
     return res;
@@ -25,7 +26,8 @@ export const signUp = async (path, user) => {
       mode: "cors",
       body: JSON.stringify(user),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     })
     return res;
@@ -84,7 +86,8 @@ export const patchCart = async (path, payload) => {
       mode: "cors",
       body: JSON.stringify(payload),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     })
     return res.json();
@@ -100,7 +103,8 @@ export const deleteComment = async (path, payload) => {
       mode: "cors",
       body: JSON.stringify(payload),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     })
     return res.json();
@@ -116,7 +120,8 @@ export const editComment = async (path, payload) => {
       mode: "cors",
       body: JSON.stringify(payload),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     })
     return res.json();
@@ -141,7 +146,8 @@ export const deleteCart = async (path, payload) => {
       mode: "cors",
       body: JSON.stringify(payload),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     });
 
@@ -158,7 +164,8 @@ export const changeQuantity = async (path, payload) => {
       mode: "cors",
       body: JSON.stringify(payload),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     });
 
@@ -208,7 +215,8 @@ export const postUser = async (path, payload) => {
       mode: "cors",
       body: JSON.stringify(payload),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     })
     return res.json();
@@ -224,7 +232,8 @@ export const changeUser = async (path, payload) => {
       mode: "cors",
       body: JSON.stringify(payload),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     })
 
