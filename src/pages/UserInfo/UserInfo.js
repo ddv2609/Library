@@ -14,7 +14,7 @@ import DetailUserInfo from "../../components/DetailUserInfo/DetailUserInfo";
 import { changeUserInfo, getUserInfo } from "../../services";
 
 function UserInfo() {
-  const [imageUrl, setImageUrl] = useState();
+  // const [imageUrl, setImageUrl] = useState();
   const [userInfo, setUserInfo] = useState({});
   const [upload, setUpLoad] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -45,7 +45,7 @@ function UserInfo() {
               .then((_) => {
                 setOpenDropdown(false);
                 // setEdit(false);
-                setImageUrl();
+                // setImageUrl();
                 setUpLoad(false);
               })
           }}

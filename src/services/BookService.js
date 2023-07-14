@@ -1,4 +1,4 @@
-import { addIntoCart, deleteComment, editComment, getBookInfo, patchCart, patchRate } from "../utils";
+import { addIntoCart, deleteComment, editComment, getBookInfo, patchRate } from "../utils";
 
 export const getBookDetail = async (ID, uid) => {
   const [book, comments, rates, { books }] = await getBookInfo(

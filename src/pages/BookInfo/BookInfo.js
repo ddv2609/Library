@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Col, InputNumber, Modal, Rate, Row, Skeleton, message } from "antd";
-import { StarOutlined, ShoppingCartOutlined, CommentOutlined, SendOutlined } from "@ant-design/icons";
+import { StarOutlined, ShoppingCartOutlined, CommentOutlined } from "@ant-design/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd, faSubtract } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
@@ -134,7 +134,7 @@ function BookInfo() {
     return () => {
       document.title = "Library";
     }
-  }, [])
+  }, [ID])
 
   const handleRating = () => {
     setConfirmLoading(true);

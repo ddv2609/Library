@@ -1,6 +1,8 @@
 .separate {
   margin-bottom: 8px !important;
   margin-top: 6px !important;
+  margin-left: 28px !important;
+  margin-right: 28px !important;
 }
 
 .separate::before,

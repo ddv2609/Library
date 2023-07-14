@@ -15,8 +15,6 @@ function LayoutDefault() {
   useEffect(() => {
     const uid = localStorage.getItem("uid");
     if (uid !== undefined) {
-      // fetch(`https://library-db-vercel.vercel.app/users/${uid}`)
-      //   .then(res => res.json())
       getUserInfo(uid)
         .then(user => {
           dispatch(signIn(user));
