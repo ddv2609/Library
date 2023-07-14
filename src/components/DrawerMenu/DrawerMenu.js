@@ -6,7 +6,7 @@ import { Divider, Dropdown, Modal, Space } from "antd";
 import styles from "./DrawerMenu.module.css";
 import { useState } from "react";
 
-function DrawerMenu({ user, actions, notifies, setShowDrawer }) {
+function DrawerMenu({ loading, user, actions, notifies, setShowDrawer }) {
   const [openModal, setOpenModal] = useState(false);
 
   const handleCloseDrawer = () => {
