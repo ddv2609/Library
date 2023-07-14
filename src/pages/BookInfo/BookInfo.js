@@ -173,7 +173,7 @@ function BookInfo() {
       })
     } else {
       const uid = localStorage.getItem("uid");
-      if (quantityInCart === 0) {
+      if (quantityInCart === 0 && !booksInCart) {
         // fetch(`http://localhost:3004/carts/${localStorage.getItem("uid")}`, {
         //   method: "PATCH",
         //   mode: "cors",
