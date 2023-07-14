@@ -192,6 +192,7 @@ function Header({ loading }) {
             }
           >
             <DrawerMenu
+              loading={loading}
               user={user}
               actions={actions}
               notifies={notifies}

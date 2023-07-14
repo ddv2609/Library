@@ -8,7 +8,7 @@ import { useState } from "react";
 
 function DrawerMenu({ user, actions, notifies, setShowDrawer }) {
   const [openModal, setOpenModal] = useState(false);
-  
+
   const handleCloseDrawer = () => {
     setShowDrawer(false);
   }
@@ -38,89 +38,91 @@ function DrawerMenu({ user, actions, notifies, setShowDrawer }) {
             </Space>
           </Link>
         </li>
-        {user.uid ? (
-          <>
-            <li
-              className={styles.list}
-              onClick={handleCloseDrawer}
-            >
-              <Link className={styles.anchor} to='/cart'>
-                <Space size={32} align="center">
-                  <FontAwesomeIcon icon={faBagShopping} className={styles.icon} />
-                  <span>Giỏ hàng</span>
-                </Space>
-              </Link>
-            </li>
-            <li
-              className={styles.list}
-              onClick={handleCloseDrawer}
-            >
-              <Link className={styles.anchor} to='/filter'>
-                <Space size={32} align="center">
-                  <FontAwesomeIcon icon={faFilter} className={styles.icon} />
-                  <span>Bộ lọc</span>
-                </Space>
-              </Link>
-            </li>
-            <li
-              className={styles.list}
-              onClick={handleCloseDrawer}
-            >
-              <div
-                className={styles.notifies}
-                onClick={handleOpenModal}
+        {loading || user.id ? (
+          user.id ? (
+            <>
+              <li
+                className={styles.list}
+                onClick={handleCloseDrawer}
               >
-                <a
-                  href="#"
-                  className={styles.action}
-                  onClick={(e) => e.preventDefault()}
-                >
+                <Link className={styles.anchor} to='/cart'>
                   <Space size={32} align="center">
-                    <FontAwesomeIcon icon={faBell} className={styles.icon} />
-                    <span>Thông báo</span>
+                    <FontAwesomeIcon icon={faBagShopping} className={styles.icon} />
+                    <span>Giỏ hàng</span>
                   </Space>
-                </a>
-              </div>
-              <Modal
-                title="Thông báo"
-                open={openModal}
-                footer={null}
-                onCancel={handleCancelModal}
+                </Link>
+              </li>
+              <li
+                className={styles.list}
+                onClick={handleCloseDrawer}
               >
-                {notifies.map((notify, index) => (
-                  notify.type === "notify" ? (
-                    <div key={index} className={styles.notify}>
-                      {notify.label}
-                    </div>
-                  ) : (
-                    <Divider key={index} className={styles.separate} />
-                  )
-                ))}
-              </Modal>
-            </li>
-            <li
-              className={styles.list}
-            >
-              <Dropdown
-                className={styles.dropdown}
-                menu={{ items: actions }}
-                placement="bottom"
-                // arrow={{ pointAtCenter: true }}
-                trigger="click"
-              >
-                <a
-                  href="#"
-                  className={styles.action}
-                  onClick={(e) => e.preventDefault()}
-                >
+                <Link className={styles.anchor} to='/filter'>
                   <Space size={32} align="center">
-                    <FontAwesomeIcon icon={faUser} className={styles.icon} />
-                    <span>Người dùng</span>
+                    <FontAwesomeIcon icon={faFilter} className={styles.icon} />
+                    <span>Bộ lọc</span>
                   </Space>
-                </a>
-              </Dropdown>
-            </li>
-          </>
+                </Link>
+              </li>
+              <li
+                className={styles.list}
+                onClick={handleCloseDrawer}
+              >
+                <div
+                  className={styles.notifies}
+                  onClick={handleOpenModal}
+                >
+                  <a
+                    href="#"
+                    className={styles.action}
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    <Space size={32} align="center">
+                      <FontAwesomeIcon icon={faBell} className={styles.icon} />
+                      <span>Thông báo</span>
+                    </Space>
+                  </a>
+                </div>
+                <Modal
+                  title="Thông báo"
+                  open={openModal}
+                  footer={null}
+                  onCancel={handleCancelModal}
+                >
+                  {notifies.map((notify, index) => (
+                    notify.type === "notify" ? (
+                      <div key={index} className={styles.notify}>
+                        {notify.label}
+                      </div>
+                    ) : (
+                      <Divider key={index} className={styles.separate} />
+                    )
+                  ))}
+                </Modal>
+              </li>
+              <li
+                className={styles.list}
+              >
+                <Dropdown
+                  className={styles.dropdown}
+                  menu={{ items: actions }}
+                  placement="bottom"
+                  // arrow={{ pointAtCenter: true }}
+                  trigger="click"
+                >
+                  <a
+                    href="#"
+                    className={styles.action}
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    <Space size={32} align="center">
+                      <FontAwesomeIcon icon={faUser} className={styles.icon} />
+                      <span>Người dùng</span>
+                    </Space>
+                  </a>
+                </Dropdown>
+              </li>
+            </>
+          ) : (<></>)
         ) : (
           <>
             <li
