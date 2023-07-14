@@ -489,7 +489,7 @@ function BookInfo() {
           )}
         cancelText="Thoát"
         okText="Đánh giá"
-        open={openModalRate && user.id}
+        open={openModalRate}
         closable={false}
         confirmLoading={comfirmLoading}
         cancelButtonProps={{ disabled: comfirmLoading }}
@@ -522,7 +522,7 @@ function BookInfo() {
         }
         cancelText="Thoát"
         okText="Thêm"
-        open={openModalCart && user.id}
+        open={openModalCart}
         closable={false}
         confirmLoading={comfirmLoading}
         cancelButtonProps={{ disabled: comfirmLoading }}
