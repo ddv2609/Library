@@ -411,7 +411,18 @@ function BookInfo() {
                   <div className={styles.rating}>
                     <StarOutlined
                       className={styles.starIcon}
-                      onClick={() => setOpenModalRate(true)}
+                      onClick={() => {
+                        if (user.id) {
+                          setOpenModalRate(true);
+                        } else {
+                          Modal.info({
+                            title: "Bạn chưa đăng nhập",
+                            content: "Bạn phải đăng nhập thì mới có thể cho đánh giá về quyển sách này",
+                            okText: "Đã hiểu",
+                            onOk() { }
+                          })
+                        }
+                      }}
                     />
                   </div>
                 </Col>
@@ -419,7 +430,18 @@ function BookInfo() {
                   <div className={styles.cart}>
                     <ShoppingCartOutlined
                       className={styles.cartIcon}
-                      onClick={() => setOpenModalCart(true)}
+                      onClick={() => {
+                        if (user.id) {
+                          setOpenModalCart(true);
+                        } else {
+                          Modal.info({
+                            title: "Bạn chưa đăng nhập",
+                            content: "Bạn phải đăng nhập thì mới có thể thêm sách vào giỏ hàng",
+                            okText: "Đã hiểu",
+                            onOk() { }
+                          })
+                        }
+                      }}
                     />
                   </div>
                 </Col>
@@ -467,7 +489,7 @@ function BookInfo() {
           )}
         cancelText="Thoát"
         okText="Đánh giá"
-        open={openModalRate}
+        open={openModalRate && user.id}
         closable={false}
         confirmLoading={comfirmLoading}
         cancelButtonProps={{ disabled: comfirmLoading }}
@@ -500,7 +522,7 @@ function BookInfo() {
         }
         cancelText="Thoát"
         okText="Thêm"
-        open={openModalCart}
+        open={openModalCart && user.id}
         closable={false}
         confirmLoading={comfirmLoading}
         cancelButtonProps={{ disabled: comfirmLoading }}
