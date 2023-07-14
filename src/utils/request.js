@@ -40,14 +40,21 @@ export const signUp = async (path, user) => {
 
 export const getBookInfo = async (pathBooks, pathComments, pathRates, pathCarts) => {
   try {
-    const [bookResponse, commentsResponse, ratesResponse, cartsResponse] = await Promise.all([
+    const [bookResponse, commentsResponse, ratesResponse, cartsResponse, usersResponse] = await Promise.all([
       fetch(`${API_DOMAIN}/${pathBooks}`),
       fetch(`${API_DOMAIN}/${pathComments}`),
       fetch(`${API_DOMAIN}/${pathRates}`),
-      fetch(`${API_DOMAIN}/${pathCarts}`)
+      fetch(`${API_DOMAIN}/${pathCarts}`),
+      fetch(`${API_DOMAIN}/users`)
     ]);
 
-    return Promise.all([bookResponse.json(), commentsResponse.json(), ratesResponse.json(), cartsResponse.json()])
+    return Promise.all([
+      bookResponse.json(), 
+      commentsResponse.json(), 
+      ratesResponse.json(), 
+      cartsResponse.json(),
+      usersResponse.json()
+    ]);
   } catch (err) {
     console.error(`Error why trying get book info: ${err}`);
   }

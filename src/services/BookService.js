@@ -1,13 +1,13 @@
 import { addIntoCart, deleteComment, editComment, getBookInfo, patchRate } from "../utils";
 
 export const getBookDetail = async (ID, uid) => {
-  const [book, comments, rates, { books }] = await getBookInfo(
+  const [book, comments, rates, { books }, users] = await getBookInfo(
     `books/${ID}`, 
     `comments/${ID}`, 
     `rates/${ID}`, 
     `carts/${uid}`
   );
-  return [book, comments, rates, { books }];
+  return [book, comments, rates, { books }, users];
 }
 
 export const patchBookRate = async (ID, bookData, rateData) => {

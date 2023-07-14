@@ -106,14 +106,19 @@ function BookInfo() {
 
     const uid = localStorage.getItem("uid");
     getBookDetail(ID, uid)
-      .then(([book, comments, rates, { books }]) => {
+      .then(([book, comments, rates, { books }, users]) => {
         document.title = book.title;
         const bookInCart = books ? books.find((item) => item.bookID === book.id) : [];
         const userVoted = new Map();
+        const usersAvatar = new Map();
 
         rates.list.forEach(({ uid, star }) => {
           userVoted.set(uid, star);
         });
+
+        users.forEach(({ id, avatar }) => {
+          usersAvatar.set(id, avatar);
+        })
 
         if (userVoted.has(uid)) {
           setStarVoted(userVoted.get(uid));
@@ -128,7 +133,7 @@ function BookInfo() {
         setBooksInCart(books);
         setUserVoted(userVoted);
         setBook(book);
-        setComments(comments.contents.reverse());
+        setComments(comments.contents.reverse().map(item => ({ ...item, avatar: usersAvatar.get(item.uid) })) );
       })
 
     return () => {
