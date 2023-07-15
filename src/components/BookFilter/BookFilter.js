@@ -306,19 +306,6 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Short stories</div>
-          ),
-        },
-        {
-          type: 'divider'
-        },
-        {
-          key: '22',
-          label: (
-            <div
-              className={styles.choice}
-              name="Thể loại"
-              onClick={(e) => handleSetStatus(e)}
             >War</div>
           ),
         },
@@ -326,7 +313,7 @@ function BookFilter({ setOptions }) {
           type: 'divider'
         },
         {
-          key: '23',
+          key: '22',
           label: (
             <div
               className={styles.choice}

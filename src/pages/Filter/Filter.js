@@ -127,10 +127,6 @@ function Filter() {
           value: "Short stories"
         },
         {
-          label: "Short stories",
-          value: "Short stories"
-        },
-        {
           label: "War",
           value: "War"
         },
