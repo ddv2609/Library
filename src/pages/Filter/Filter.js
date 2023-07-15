@@ -47,12 +47,96 @@ function Filter() {
       value: "category",
       children: [
         {
-          label: "Lãng mạn",
-          value: "romance"
+          label: "Adventure stories",
+          value: "Adventure stories"
         },
         {
-          label: "Hài hước",
-          value: "comedy"
+          label: "Autobiography and memoir",
+          value: "Autobiography and memoir"
+        },
+        {
+          label: "Biography",
+          value: "Biography"
+        },
+        {
+          label: "Classics",
+          value: "Classics"
+        },
+        {
+          label: "Crime",
+          value: "Crime"
+        },
+        {
+          label: "Essays",
+          value: "Essays"
+        },
+        {
+          label: "Fairy tales, fables, and folk tales",
+          value: "Fairy tales, fables, and folk tales"
+        },
+        {
+          label: "Fantasy",
+          value: "Fantasy"
+        },
+        {
+          label: "Historical fiction",
+          value: "Historical fiction"
+        },
+        {
+          label: "Horror",
+          value: "Horror"
+        },
+        {
+          label: "Humour and satire",
+          value: "Humour and satire"
+        },
+        {
+          label: "Literary fiction",
+          value: "Literary fiction"
+        },
+        {
+          label: "Mystery",
+          value: "Mystery"
+        },
+        {
+          label: "Non-fiction novel",
+          value: "Non-fiction novel"
+        },
+        {
+          label: "Plays",
+          value: "Plays"
+        },
+        {
+          label: "Poetry",
+          value: "Poetry"
+        },
+        {
+          label: "Romance",
+          value: "Romance"
+        },
+        {
+          label: "Science fiction",
+          value: "Science fiction"
+        },
+        {
+          label: "Self-help",
+          value: "Self-help"
+        },
+        {
+          label: "Short stories",
+          value: "Short stories"
+        },
+        {
+          label: "Short stories",
+          value: "Short stories"
+        },
+        {
+          label: "War",
+          value: "War"
+        },
+        {
+          label: "Women`s fiction",
+          value: "Women`s fiction"
         }
       ]
     },

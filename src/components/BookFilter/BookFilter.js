@@ -332,7 +332,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Women’s fiction</div>
+            >Women`s fiction</div>
           ),
         }
       ]
