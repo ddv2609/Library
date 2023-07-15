@@ -34,6 +34,7 @@
 
 .info {
   font-size: 14px;
+  padding-left: 12px;
 }
 
 .info .title {
@@ -88,6 +89,47 @@
   max-width: 64%;
 }
 
+.priceAndBuy .addBookWraper {
+  display: none;
+  position: relative;
+}
+
+.priceAndBuy .addBookWraper .btnAddBook::before {
+  content: attr(quantity);
+  width: 18px;
+  height: 18px;
+  padding: 2px;
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  background-color: #F57224;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 500;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.priceAndBuy .addBookWraper .btnAddBook {
+  padding: 0 24px;
+  max-height: 26px;
+}
+
+.priceAndBuy .addBookWraper .btnAddBook:hover {
+  background-color: #D9EBFF;
+}
+
+.priceAndBuy .iconAddCart {
+  font-size: 16px;
+  color: #007bff;
+}
+
+.modalAddBook .inputField {
+  width: 100%;
+}
+
 .deleteBook,
 .iconTrash {
   width: 16px;
@@ -100,6 +142,18 @@
 
 .deleteBook:hover {
   background-color: #D9EBFF;
+}
+
+/* Kích thước nhỏ hơn 768px */
+@media (max-width: 767.98px) {
+  .priceAndBuy .addBook {
+    display: none;
+  }
+
+  .priceAndBuy .addBookWraper {
+    display: block;
+  }
+
 }
 
 /* Kích thước nhỏ hơn 576px */
@@ -116,7 +170,7 @@
   .price .cost,
   .price .saleOff,
   .price .currentPrice {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .info .title {
@@ -135,5 +189,4 @@
     width: 48px;
     height: 72px;
   }
-
 }

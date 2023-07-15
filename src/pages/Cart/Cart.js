@@ -33,8 +33,6 @@ function Cart() {
 
   useEffect(() => {
     const quantitys = [];
-    // fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`)
-    //   .then(res => res.json())
     getBooksInCart(localStorage.getItem("uid"))
       .then(({ books }) => {
         if (books) {
@@ -90,16 +88,6 @@ function Cart() {
   const handleDeleteBook = (bookID) => {
     const newBooksInCart = booksInCart.filter((book) => book.id !== bookID);
 
-    // fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`, {
-    //   method: "PATCH",
-    //   mode: "cors",
-    //   body: JSON.stringify({
-    //     books: newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json; charset=UTF-8',
-    //   }
-    // })
     deleteBookInCart(localStorage.getItem("uid"), {
       books: newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))
     })
@@ -117,16 +105,6 @@ function Cart() {
       hasChecks.map(({ id }) => IDsChecked.push(id))
       const newBooksInCart = booksInCart.filter((book) => !IDsChecked.includes(book.id));
 
-      // fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`, {
-      //   method: "PATCH",
-      //   mode: "cors",
-      //   body: JSON.stringify({
-      //     books: newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))
-      //   }),
-      //   headers: {
-      //     'Content-Type': 'application/json; charset=UTF-8',
-      //   }
-      // })
       deleteBookInCart(localStorage.getItem("uid"), {
         books: newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))
       })
@@ -149,16 +127,6 @@ function Cart() {
   const handleChangeQuantity = (bookID, quantity) => {
     const newBooksInCart = booksInCart.filter((book) => book.id !== bookID);
 
-    // fetch(`https://library-db-vercel.vercel.app/carts/${localStorage.getItem("uid")}`, {
-    //   method: "PATCH",
-    //   mode: "cors",
-    //   body: JSON.stringify({
-    //     books: [...(newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))), { bookID, quantity }]
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json; charset=UTF-8',
-    //   }
-    // })
     changeQuantityBookInCart(localStorage.getItem("uid"), {
       books: [...(newBooksInCart.map(({ id, quantity }) => ({ bookID: id, quantity }))), { bookID, quantity }]
     })
