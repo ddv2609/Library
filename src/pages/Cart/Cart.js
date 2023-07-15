@@ -196,7 +196,7 @@ function Cart() {
                     loading ? (
                       [...Array(3)].map((_, index) => (
                         <div className={styles.bookInCart} key={index}>
-                          <Row gutter={[12, 12]} align="middle">
+                          <Row gutter={[12, 0]} align="middle">
                             <Col xs={2} sm={1}>
                               <Checkbox disabled></Checkbox>
                             </Col>
@@ -209,16 +209,18 @@ function Cart() {
                                     </div>
                                   </Col>
                                   <Col span={18}>
-                                    {[...Array(2)].map((_, index) => (
-                                      <div key={`skeleton-${index}`} className={styles.info}>
-                                        <Skeleton
-                                          active
-                                          title={false}
-                                          size="small"
-                                          style={{ width: "80%" }}
-                                        ></Skeleton>
-                                      </div>
-                                    ))}
+                                    <div className={styles.infoDetail}>
+                                      {[...Array(2)].map((_, index) => (
+                                        <div key={`skeleton-${index}`} className={styles.info}>
+                                          <Skeleton
+                                            active
+                                            title={false}
+                                            size="small"
+                                            style={{ width: "80%" }}
+                                          ></Skeleton>
+                                        </div>
+                                      ))}
+                                    </div>
                                   </Col>
                                 </Row>
                               </div>

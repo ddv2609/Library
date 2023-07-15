@@ -79,6 +79,10 @@
   margin-bottom: 8px;
 }
 
+.cart .bookInCart .bookInfo .infoDetail {
+  margin-left: 12px;
+}
+
 .iconTrash,
 .iconFileInvoice {
   width: 16px;
