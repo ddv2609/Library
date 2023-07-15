@@ -40,13 +40,26 @@ function BookFilter({ setOptions }) {
       span: 8,
       items: [
         {
+          key: '1',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Adventure stories</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
           key: '2',
           label: (
             <div
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Romance</div>
+            >Autobiography and memoir</div>
           ),
         },
         {
@@ -59,7 +72,267 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Comedy</div>
+            >Biography</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '4',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Classics</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '5',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Crime</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '6',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Essays</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '7',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Fairy tales, fables, and folk tales</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '8',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Fantasy</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '9',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Historical fiction</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '10',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Horror</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '11',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Humour and satire</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '12',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Literary fiction</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '13',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Mystery</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '14',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Non-fiction novel</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '15',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Plays</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '16',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Poetry</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '17',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Romance</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '18',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Science fiction</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '19',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Self-help</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '20',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Short stories</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '21',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Short stories</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '22',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >War</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '23',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Women’s fiction</div>
           ),
         }
       ]

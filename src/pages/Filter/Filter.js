@@ -2,8 +2,10 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { Pagination } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { changeCascaderOptions, changeCascaderSmallerValues, changeCascaderValues, 
-  changePage, changeQuery, changeSearch, changeSorts, getAllBooks } from "../../actions";
+import {
+  changeCascaderOptions, changeCascaderSmallerValues, changeCascaderValues,
+  changePage, changeQuery, changeSearch, changeSorts, getAllBooks
+} from "../../actions";
 
 import styles from "./Filter.module.css";
 import Error404 from "../../components/Error/Error404";
@@ -224,8 +226,6 @@ function Filter() {
 
     let params = `q=${search}` + (query !== "" ? `&${query}` : query);
 
-    // fetch(`https://library-db-vercel.vercel.app/books${params !== "" ? `?${params}` : params}`)
-    //   .then(res => res.json())
     getBooksByParams(params)
       .then(books => {
         if (sorts.length > 0) {
@@ -270,8 +270,6 @@ function Filter() {
             break;
         }
       })
-      dispatch(changeSorts(newSorts));
-      dispatch(changeQuery(queryString));
     } else {
       smallerValue.forEach(([value, label]) => {
         let param = label.charAt(0).toUpperCase() + label.slice(1);
@@ -298,9 +296,9 @@ function Filter() {
             break;
         }
       })
-      dispatch(changeSorts(newSorts));
-      dispatch(changeQuery(queryString));
     }
+    dispatch(changeSorts(newSorts));
+    dispatch(changeQuery(queryString));
     setCheckFilter(true);
   }
 

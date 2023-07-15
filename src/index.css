@@ -40,6 +40,17 @@ code {
   height: 158px;
 }
 
+.ant-dropdown {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.ant-dropdown-menu {
+  max-height: 238px;
+  overflow-y: auto;
+}
+
 /* Kích thước nhỏ hơn 1400px */
 @media (max-width: 1399.98px) {
   .container {
