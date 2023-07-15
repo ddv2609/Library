@@ -46,8 +46,8 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Adventure stories</div>
-          ),
+            >Adventure fiction</div>
+          )
         },
         {
           type: 'divider'
@@ -59,7 +59,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Autobiography and memoir</div>
+            >Allegorical fiction</div>
           ),
         },
         {
@@ -111,7 +111,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Essays</div>
+            >Coming-of-age fiction</div>
           ),
         },
         {
@@ -124,7 +124,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Fairy tales, fables, and folk tales</div>
+            >Detective fiction</div>
           ),
         },
         {
@@ -137,7 +137,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Fantasy</div>
+            >Dystopian</div>
           ),
         },
         {
@@ -150,7 +150,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Historical fiction</div>
+            >Epic poetry</div>
           ),
         },
         {
@@ -163,7 +163,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Horror</div>
+            >Fantasy</div>
           ),
         },
         {
@@ -176,7 +176,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Humour and satire</div>
+            >Gothic novel</div>
           ),
         },
         {
@@ -189,7 +189,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Literary fiction</div>
+            >Historical fiction</div>
           ),
         },
         {
@@ -202,7 +202,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Mystery</div>
+            >Historical novel</div>
           ),
         },
         {
@@ -215,7 +215,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Non-fiction novel</div>
+            >Holocaust fiction</div>
           ),
         },
         {
@@ -228,7 +228,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Plays</div>
+            >Horror</div>
           ),
         },
         {
@@ -241,7 +241,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Poetry</div>
+            >Literary fiction</div>
           ),
         },
         {
@@ -254,7 +254,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Romance</div>
+            >Magic realism</div>
           ),
         },
         {
@@ -267,7 +267,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Science fiction</div>
+            >Modernist novel</div>
           ),
         },
         {
@@ -280,7 +280,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Self-help</div>
+            >Mystery</div>
           ),
         },
         {
@@ -293,7 +293,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Short stories</div>
+            >Philosophical fiction</div>
           ),
         },
         {
@@ -306,7 +306,7 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >War</div>
+            >Poetry</div>
           ),
         },
         {
@@ -319,7 +319,85 @@ function BookFilter({ setOptions }) {
               className={styles.choice}
               name="Thể loại"
               onClick={(e) => handleSetStatus(e)}
-            >Women`s fiction</div>
+            >Post-apocalyptic fiction</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '23',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Psychological fiction</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '24',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Realistic fiction</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '25',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Romance</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '26',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Science fiction</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '27',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >War</div>
+          ),
+        },
+        {
+          type: 'divider'
+        },
+        {
+          key: '28',
+          label: (
+            <div
+              className={styles.choice}
+              name="Thể loại"
+              onClick={(e) => handleSetStatus(e)}
+            >Young adult fiction</div>
           ),
         }
       ]

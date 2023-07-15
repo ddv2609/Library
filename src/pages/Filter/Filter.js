@@ -47,12 +47,12 @@ function Filter() {
       value: "category",
       children: [
         {
-          label: "Adventure stories",
-          value: "Adventure stories"
+          label: "Adventure fiction",
+          value: "Adventure fiction"
         },
         {
-          label: "Autobiography and memoir",
-          value: "Autobiography and memoir"
+          label: "Allegorical fiction",
+          value: "Allegorical fiction"
         },
         {
           label: "Biography",
@@ -67,48 +67,80 @@ function Filter() {
           value: "Crime"
         },
         {
-          label: "Essays",
-          value: "Essays"
+          label: "Coming-of-age fiction",
+          value: "Coming-of-age fiction"
         },
         {
-          label: "Fairy tales, fables, and folk tales",
-          value: "Fairy tales, fables, and folk tales"
+          label: "Detective fiction",
+          value: "Detective fiction"
+        },
+        {
+          label: "Dystopian",
+          value: "Dystopian"
+        },
+        {
+          label: "Epic poetry",
+          value: "Epic poetry"
         },
         {
           label: "Fantasy",
           value: "Fantasy"
         },
         {
+          label: "Gothic novel",
+          value: "Gothic novel"
+        },
+        {
           label: "Historical fiction",
           value: "Historical fiction"
+        },
+        {
+          label: "Historical novel",
+          value: "Historical novel"
+        },
+        {
+          label: "Holocaust fiction",
+          value: "Holocaust fiction"
         },
         {
           label: "Horror",
           value: "Horror"
         },
         {
-          label: "Humour and satire",
-          value: "Humour and satire"
-        },
-        {
           label: "Literary fiction",
           value: "Literary fiction"
+        },
+        {
+          label: "Magic realism",
+          value: "Magic realism"
+        },
+        {
+          label: "Modernist novel",
+          value: "Modernist novel"
         },
         {
           label: "Mystery",
           value: "Mystery"
         },
         {
-          label: "Non-fiction novel",
-          value: "Non-fiction novel"
-        },
-        {
-          label: "Plays",
-          value: "Plays"
+          label: "Philosophical fiction",
+          value: "Philosophical fiction"
         },
         {
           label: "Poetry",
           value: "Poetry"
+        },
+        {
+          label: "Post-apocalyptic fiction",
+          value: "Post-apocalyptic fiction"
+        },
+        {
+          label: "Psychological fiction",
+          value: "Psychological fiction"
+        },
+        {
+          label: "Realistic fiction",
+          value: "Realistic fiction"
         },
         {
           label: "Romance",
@@ -119,20 +151,12 @@ function Filter() {
           value: "Science fiction"
         },
         {
-          label: "Self-help",
-          value: "Self-help"
-        },
-        {
-          label: "Short stories",
-          value: "Short stories"
-        },
-        {
           label: "War",
           value: "War"
         },
         {
-          label: "Women`s fiction",
-          value: "Women`s fiction"
+          label: "Young adult fiction",
+          value: "Young adult fiction"
         }
       ]
     },
