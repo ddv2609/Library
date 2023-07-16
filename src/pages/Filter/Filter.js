@@ -453,62 +453,60 @@ function Filter() {
 
   return (
     <>
-      {localStorage.getItem("uid") ? (
-        <div className={clsx([styles.filterBooks, "container"])}>
-          {!changeUI ? (
-            <>
-              <BookFilter
-                setOptions={[setCategory, setReleaseDate, setRate, setSold, setSaleOff, setPrice]}
-              />
-              <FilterStatus
-                title={"Trạng thái"}
-                options={options}
-                value={value}
-                handleCascader={handleDeleteItemCascader}
-                handleFilter={handleFilter}
-              />
-            </>
-          ) : (
-            <>
-              <Search
-                className={styles.search}
-                addonBefore="Tìm kiếm"
-                placeholder="Tìm kiếm tên sách / tác giả"
-                allowClear
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                onSearch={(text) => handleSearch(text)}
-              />
-              <FilterStatus
-                title={"Bộ lọc"}
-                options={smallerOptions}
-                value={smallerValue}
-                handleCascader={(values, options) => handleDeleteItemSmallerCascader(values, options)}
-                handleFilter={handleFilter}
-              />
-            </>
-          )}
-          <div className={styles.books}>
-            <BooksList
-              books={books.slice((page - 1) * 24, page * 24)}
-              loading={loading}
+      <div className={clsx([styles.filterBooks, "container"])}>
+        {!changeUI ? (
+          <>
+            <BookFilter
+              setOptions={[setCategory, setReleaseDate, setRate, setSold, setSaleOff, setPrice]}
             />
-          </div>
-          <div className={styles.pagination}>
-            <Pagination
-              defaultCurrent={1}
-              current={page}
-              total={books.length}
-              pageSize={limit}
-              hideOnSinglePage
-              responsive
-              showSizeChanger={false}
-              showQuickJumper
-              onChange={(page) => handleChangePage(page)}
+            <FilterStatus
+              title={"Trạng thái"}
+              options={options}
+              value={value}
+              handleCascader={handleDeleteItemCascader}
+              handleFilter={handleFilter}
             />
-          </div>
+          </>
+        ) : (
+          <>
+            <Search
+              className={styles.search}
+              addonBefore="Tìm kiếm"
+              placeholder="Tìm kiếm tên sách / tác giả"
+              allowClear
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              onSearch={(text) => handleSearch(text)}
+            />
+            <FilterStatus
+              title={"Bộ lọc"}
+              options={smallerOptions}
+              value={smallerValue}
+              handleCascader={(values, options) => handleDeleteItemSmallerCascader(values, options)}
+              handleFilter={handleFilter}
+            />
+          </>
+        )}
+        <div className={styles.books}>
+          <BooksList
+            books={books.slice((page - 1) * 24, page * 24)}
+            loading={loading}
+          />
         </div>
-      ) : <Error404 />}
+        <div className={styles.pagination}>
+          <Pagination
+            defaultCurrent={1}
+            current={page}
+            total={books.length}
+            pageSize={limit}
+            hideOnSinglePage
+            responsive
+            showSizeChanger={false}
+            showQuickJumper
+            onChange={(page) => handleChangePage(page)}
+          />
+        </div>
+      </div>
     </>
   )
 }
