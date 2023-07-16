@@ -38,6 +38,17 @@ function DrawerMenu({ loading, user, actions, notifies, setShowDrawer }) {
             </Space>
           </Link>
         </li>
+        <li
+          className={styles.list}
+          onClick={handleCloseDrawer}
+        >
+          <Link className={styles.anchor} to='/filter'>
+            <Space size={32} align="center">
+              <FontAwesomeIcon icon={faFilter} className={styles.icon} />
+              <span>Bộ lọc</span>
+            </Space>
+          </Link>
+        </li>
         {loading || user.id ? (
           user.id ? (
             <>
@@ -49,17 +60,6 @@ function DrawerMenu({ loading, user, actions, notifies, setShowDrawer }) {
                   <Space size={32} align="center">
                     <FontAwesomeIcon icon={faBagShopping} className={styles.icon} />
                     <span>Giỏ hàng</span>
-                  </Space>
-                </Link>
-              </li>
-              <li
-                className={styles.list}
-                onClick={handleCloseDrawer}
-              >
-                <Link className={styles.anchor} to='/filter'>
-                  <Space size={32} align="center">
-                    <FontAwesomeIcon icon={faFilter} className={styles.icon} />
-                    <span>Bộ lọc</span>
                   </Space>
                 </Link>
               </li>
