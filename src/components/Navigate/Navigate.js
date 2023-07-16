@@ -16,7 +16,15 @@ function Navigate({ loading, user, actions, notifies }) {
           >
             <Space size={6} align="center">
               <FontAwesomeIcon icon={faHome} className={styles.icon} />
-              Home
+              Trang chủ
+            </Space>
+          </Link>
+        </li>
+        <li className={styles.list}>
+          <Link className={styles.anchor} to='/filter'>
+            <Space size={6} align="center">
+              <FontAwesomeIcon icon={faFilter} className={styles.icon} />
+              Bộ lọc
             </Space>
           </Link>
         </li>
@@ -27,15 +35,7 @@ function Navigate({ loading, user, actions, notifies }) {
                 <Link className={styles.anchor} to='/cart'>
                   <Space size={6} align="center">
                     <FontAwesomeIcon icon={faBagShopping} className={styles.icon} />
-                    Cart
-                  </Space>
-                </Link>
-              </li>
-              <li className={styles.list}>
-                <Link className={styles.anchor} to='/filter'>
-                  <Space size={6} align="center">
-                    <FontAwesomeIcon icon={faFilter} className={styles.icon} />
-                    Filter
+                    Giỏ hàng
                   </Space>
                 </Link>
               </li>
@@ -73,7 +73,7 @@ function Navigate({ loading, user, actions, notifies }) {
               <Link className={styles.anchor} to="/sign-in">
                 <Space size={6} align="center">
                   <FontAwesomeIcon icon={faSignIn} className={styles.icon} />
-                  Sign in
+                  Đăng nhập
                 </Space>
               </Link>
             </li>
@@ -81,7 +81,7 @@ function Navigate({ loading, user, actions, notifies }) {
               <Link className={styles.anchor} to="/sign-up">
                 <Space size={6} align="center">
                   <FontAwesomeIcon icon={faUserPlus} className={styles.icon} />
-                  Sign up
+                  Đăng ký
                 </Space>
               </Link>
             </li>
