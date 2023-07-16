@@ -65,7 +65,7 @@ function Header({ loading }) {
           <Space size={12} align="center">
             <FontAwesomeIcon icon={faSignOut}
               className={styles.iconActionUser} />
-            Đăng xuất
+            Sign Out
           </Space>
         </div>
       ),

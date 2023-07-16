@@ -16,7 +16,7 @@ function Navigate({ loading, user, actions, notifies }) {
           >
             <Space size={6} align="center">
               <FontAwesomeIcon icon={faHome} className={styles.icon} />
-              Trang chủ
+              Home
             </Space>
           </Link>
         </li>
@@ -24,7 +24,7 @@ function Navigate({ loading, user, actions, notifies }) {
           <Link className={styles.anchor} to='/filter'>
             <Space size={6} align="center">
               <FontAwesomeIcon icon={faFilter} className={styles.icon} />
-              Bộ lọc
+              Filter
             </Space>
           </Link>
         </li>
@@ -35,7 +35,7 @@ function Navigate({ loading, user, actions, notifies }) {
                 <Link className={styles.anchor} to='/cart'>
                   <Space size={6} align="center">
                     <FontAwesomeIcon icon={faBagShopping} className={styles.icon} />
-                    Giỏ hàng
+                    Card
                   </Space>
                 </Link>
               </li>
@@ -73,7 +73,7 @@ function Navigate({ loading, user, actions, notifies }) {
               <Link className={styles.anchor} to="/sign-in">
                 <Space size={6} align="center">
                   <FontAwesomeIcon icon={faSignIn} className={styles.icon} />
-                  Đăng nhập
+                  Sign In
                 </Space>
               </Link>
             </li>
@@ -81,7 +81,7 @@ function Navigate({ loading, user, actions, notifies }) {
               <Link className={styles.anchor} to="/sign-up">
                 <Space size={6} align="center">
                   <FontAwesomeIcon icon={faUserPlus} className={styles.icon} />
-                  Đăng ký
+                  Sign Up
                 </Space>
               </Link>
             </li>
