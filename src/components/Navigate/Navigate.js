@@ -20,14 +20,6 @@ function Navigate({ loading, user, actions, notifies }) {
             </Space>
           </Link>
         </li>
-        <li className={styles.list}>
-          <Link className={styles.anchor} to='/filter'>
-            <Space size={6} align="center">
-              <FontAwesomeIcon icon={faFilter} className={styles.icon} />
-              Filter
-            </Space>
-          </Link>
-        </li>
         {loading || user.id ? (
           user.id ? (
             <>
@@ -36,6 +28,14 @@ function Navigate({ loading, user, actions, notifies }) {
                   <Space size={6} align="center">
                     <FontAwesomeIcon icon={faBagShopping} className={styles.icon} />
                     Card
+                  </Space>
+                </Link>
+              </li>
+              <li className={styles.list}>
+                <Link className={styles.anchor} to='/filter'>
+                  <Space size={6} align="center">
+                    <FontAwesomeIcon icon={faFilter} className={styles.icon} />
+                    Filter
                   </Space>
                 </Link>
               </li>
